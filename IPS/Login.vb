@@ -23,6 +23,7 @@ Public Class Login
         If TextBox1.Text = "" And TextBox2.Text = "" Or TextBox1.Text = "" Or TextBox2.Text = "" Then
 
             MessageBox.Show("Ingresa lo datos solicitados", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            TextBox1.Select()
 
             intento = intento + 1
 

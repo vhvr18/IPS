@@ -1,6 +1,5 @@
 ﻿Imports System.Net
 Imports System.Net.Mail
-
 Imports System.Data.SqlClient
 
 Module Modulos
@@ -16,7 +15,7 @@ Module Modulos
     Private correos As New MailMessage
     Private envios As New SmtpClient
 
-    Public InOut As Integer         ''Variables para mandar los correos de la entrada y salida 
+    Public InOut As Integer         ''Variables para mandar los correos de la entrada y salida   
     Public fecha As String
 
     Public corres As String
@@ -24,7 +23,7 @@ Module Modulos
     'Conexion central
     Public Sub Conectar()
         con = New SqlConnection
-        con.ConnectionString = (" server =localhost;database = RECOVERY ; integrated security = true")
+        con.ConnectionString = (" server =localhost;database =RECOVERY ; integrated security = true")
         con.Open()
     End Sub
 
@@ -32,12 +31,9 @@ Module Modulos
     ''Conexion remota, solo cambiar parametros
     'Public Sub Conectar()
     '    con = New SqlConnection
-    '    con.ConnectionString = ("Data Source=192.168.0.12,1433;Network Library=DBMSSOCN;Initial Catalog=RECOVERY;User ID=sa;Password=01900;")
+    '    con.ConnectionString = ("Data Source=25.29.75.145,1433;Network Library=DBMSSOCN;Initial Catalog=RECOVERY;User ID=sa;Password=01900;")
     '    con.Open()
     'End Sub
-
-
-
 
     Public Sub Ejecutar(consulta As String)
 
@@ -98,7 +94,6 @@ Module Modulos
         Else
 
             Try
-
                 Dim emi As String = "sysintegratedcompany@gmail.com"
                 Dim pass As String = "farmacia01900 "
                 Dim asun As String = "Sucursal 0100 Tultitlan Registro de Entrada"

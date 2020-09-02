@@ -2,6 +2,7 @@
 Imports System.Net
 Imports System.Net.Mail
 
+Imports System.Drawing.Printing
 
 Public Class Venta
 
@@ -11,12 +12,17 @@ Public Class Venta
 
     Dim Descuento As String               ''Variable para obtener el descuento
 
+    Dim id As String = ""                                   'le asignamos un id al  ticket especifico que lo sacamos de la fecha
+
+
     ''Codigo para registrar ventas por articulo y por ticket 
     Public Sub RegistrarVentas()
 
+        Dim resp As Integer         ''Variable para obtener la respuesta del ticket
+
         Dim codigoPreventa As String          ''Variable para obtener el codigo de barra de los productos que se van a vender 
 
-        Dim codArticulo As String = ""
+        Dim codArticulo As String = ""                  ''Detalles del articulo 
         Dim descripccion As String = ""
         Dim descripcion2 As String = ""
 
@@ -24,10 +30,9 @@ Public Class Venta
         Dim precio As Double
 
 
-        Dim compraNegada As String = ""
+        Dim compraNegada As String = ""         ''Variable que se utiliza para registrar la venta por ticket 
 
-        Dim id As String = ""                                   'le asignamos un id al  ticket especifico que lo sacamos de la fecha
-        id = DateTime.Now.ToString("ddMMyyyyhhmmss")
+        id = DateTime.Now.ToString("ddMMyyyyhhmmss")     ''Asignamos el id 
 
         Dim fecha As String = ""
         fecha = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") ''Variables para la hora de entrada
@@ -38,7 +43,7 @@ Public Class Venta
             codigoPreventa = (PuntoDeVenta.DataGridView1.Item(0, a).Value) '' variable del codigo del grid
 
 
-            If codigoPreventa > 0 Then ''condicion para cuando el codigo del grid de 0 no lo agrege 
+            If codigoPreventa > 0 Then ''condicion para que cuando el codigo del grid de 0 no lo agrege 
 
                 sql = "Select * from preventas where Codigo_Producto = '" & codigoPreventa & "'"  ' consulta a preventas 
                 Ejecutar(sql)
@@ -58,27 +63,47 @@ Public Class Venta
 
                 '' insertar a la tabla articulos la cual agregara los articulos del grid uno por uno
 
-                If Val(TextBox5.Text) >= Val(TextBox3.Text) Or Val(TextBox6.Text) >= Val(TextBox3.Text) Then
+                If Val(TextBox5.Text) >= Val(TextBox3.Text) Or Val(TextBox6.Text) >= Val(TextBox3.Text) Then        ''Validaciones del pago 
 
-                    If PuntoDeVenta.DataGridView1.Rows.Count = 1 Then
+                    If PuntoDeVenta.DataGridView1.Rows.Count = 1 Then        ''Validacion si en el carrito solo hay un articulo
 
-                        sql = "insert into ventasArticulos values('" + fecha + "','" + id + "','" + codArticulo + "','" + descripccion +
-                                        "','" + descripcion2 + "','" + ComboBox2.SelectedItem + "','" & cantidad &
-                                        "','" & precio & "','" + ComboBox3.Text + "','" & totalApagar & "','" & (precio * cantidad) &
-                                        "','" & Val(TextBox1.Text) & "','" + Login.usuario + "')"
+                        If cantidad = 0 Or descripccion = "" Then     ''If para evitar el bus en los registros de ventas  ya que agrega ventas a la tabla tickets y articulos con valores en cero y sin descripcion 
+
+                        Else
 
 
-                        Ejecutar(sql)
-                        con.Close()
+                            sql = "insert into ventasArticulos values('" + fecha + "','" + id + "','" + codArticulo + "','" + descripccion +
+                                       "','" + descripcion2 + "','" + ComboBox2.SelectedItem + "','" & cantidad &
+                                       "','" & precio & "','" + ComboBox3.Text + "','" & totalApagar & "','" & (precio * cantidad) &
+                                       "','" & Val(TextBox3.Text) & "','" + Login.usuario + "')"
+
+
+                            Ejecutar(sql)
+                            con.Close()
+
+
+                        End If
+
                     Else
-                        sql = "insert into ventasArticulos values('" + fecha + "','" + id + "','" + codArticulo + "','" + descripccion +
+
+                        If cantidad = 0 Or descripccion = "" Then
+
+
+
+                        Else
+
+                            sql = "insert into ventasArticulos values('" + fecha + "','" + id + "','" + codArticulo + "','" + descripccion +
                                                             "','" + descripcion2 + "','" + ComboBox2.SelectedItem + "','" & cantidad &
-                                                            "','" & precio & "','" + ComboBox3.Text + "','" & totalApagar & "','" & ((precio * cantidad) - totalApagar) &
+                                                            "','" & precio & "','" + ComboBox3.Text + "','" & totalApagar & "','" & (precio * cantidad) &
                                                             "','" & (precio * cantidad) & "','" + Login.usuario + "')"
 
 
-                        Ejecutar(sql)
-                        con.Close()
+                            Ejecutar(sql)
+                            con.Close()
+
+                        End If
+
+
 
                     End If
 
@@ -114,11 +139,23 @@ Public Class Venta
 
             ''insertar a la tabla ventasxtickets  la venta en general  venta por ticket 
             sql = "insert into ventasxTickets values('" + fecha + "','" + id + "','" + ComboBox2.SelectedItem + "','" & PuntoDeVenta.TextBox5.Text &
-                                                "','" + ComboBox3.Text + "','" & totalApagar & "','" & TextBox3.Text & "','" & TextBox1.Text &
+                                                "','" + ComboBox3.Text + "','" & totalApagar & "','" & TextBox1.Text & "','" & TextBox3.Text &
                                                 "','" + Login.usuario + "')"
 
             Ejecutar(sql)
             con.Close()
+
+
+            resp = MsgBox("¿Desea imprimir el ticket? ", vbOKCancel, "Integrated Pharmacy System")  ''Codigo que confirma la eliminacion de un usuario
+
+            If resp = 1 Then
+
+                PrintDocument1.Print()
+
+            Else
+
+            End If
+
 
             PuntoDeVenta.Button3.PerformClick()
 
@@ -420,6 +457,91 @@ Public Class Venta
         End If
 
     End Sub
+
+    Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
+
+        ''Estructura del ticket y configuracion
+        ''Paginas a las que consulte
+        ''https://www.dreamincode.net/forums/topic/190909-printform-how-to-adjust-margins/
+        ''https://www.youtube.com/watch?v=8OHXvMStsfU
+        ''https://www.youtube.com/watch?v=NCcsXxFN86k
+        ''https://www.youtube.com/watch?v=UUp5LKR4Rts
+        ''https://www.youtube.com/watch?v=UUp5LKR4Rts     Este es el chido en vb con printdocument 
+        ''https://www.youtube.com/watch?v=UUp5LKR4Rts    Impresion con retardo
+
+
+        Dim ReportFont As Font = New Drawing.Font("AR JULIAN", 14)
+        Dim ReportFont2 As Font = New Drawing.Font("Time New Roman", 10)
+        Dim ReportFont3 As Font = New Drawing.Font("Time New Roman", 12)
+
+        ''Codigo con el cual doy configuracion a la hoja donde se va aa imprimir
+        PrintDocument1.PrinterSettings.DefaultPageSettings.Margins.Left = 0
+        PrintDocument1.PrinterSettings.DefaultPageSettings.Margins.Top = 0
+        PrintDocument1.PrinterSettings.DefaultPageSettings.Margins.Bottom = 0
+        PrintDocument1.PrinterSettings.DefaultPageSettings.Margins.Right = 0
+
+        'id = DateTime.Now.ToString("ddMMyyyyhhmmss")     ''Asignamos el id 
+
+        ''Cuerpo del ticket
+
+        e.Graphics.DrawString("FARMACIA SAN VICENTE", ReportFont, Brushes.Chocolate, 35, 0)
+
+        e.Graphics.DrawString("Numero de Ticket: " + id, ReportFont2, Brushes.Chocolate, 0, 30)
+
+        e.Graphics.DrawString("Vendedor: " + Login.nombreCompleto, ReportFont2, Brushes.Chocolate, 0, 45)
+
+        e.Graphics.DrawString("Fecha: " + DateTime.Now.ToString("dd-MM-yyyy - HH:mm:ss"), ReportFont2, Brushes.Chocolate, 0, 60)
+
+        e.Graphics.DrawString("Cant:                   Precio:                   Importe:", ReportFont2, Brushes.Chocolate, 0, 80)
+
+        e.Graphics.DrawString("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ", ReportFont2, Brushes.Chocolate, 0, 90)
+
+
+        Dim strPrint As String          ''Variable para juntar los prductos vendidos 
+        Dim posY, pos2 As Integer           ''Variables para las posiciones en y 
+
+        posY = 105
+        pos2 = 105
+
+        For a = 0 To PuntoDeVenta.DataGridView1.Rows.Count - 1               ''Ciclo para agregar los productos al ticket
+
+            strPrint = strPrint & (PuntoDeVenta.DataGridView1.Item(1, a).Value) & vbCrLf & "#" & (PuntoDeVenta.DataGridView1.Item(3, a).Value) & "                        $" & (PuntoDeVenta.DataGridView1.Item(4, a).Value) & "                    $" & (PuntoDeVenta.DataGridView1.Item(5, a).Value) & vbCrLf
+            e.Graphics.DrawString(strPrint, ReportFont2, Brushes.Chocolate, 0, posY)
+
+        Next
+
+        pos2 = pos2 + (30 * PuntoDeVenta.DataGridView1.Rows.Count)
+
+
+        e.Graphics.DrawString("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ", ReportFont2, Brushes.Chocolate, 0, pos2)
+
+        pos2 = pos2 + 20
+
+        e.Graphics.DrawString("Total Neto: $" & TextBox3.Text, ReportFont3, Brushes.Chocolate, 130, pos2)
+
+        pos2 = pos2 + 15
+
+        e.Graphics.DrawString("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ", ReportFont3, Brushes.Chocolate, 0, pos2)
+
+        pos2 = pos2 + 20
+
+        e.Graphics.DrawString("Efectivo: $" & TextBox5.Text, ReportFont2, Brushes.Chocolate, 160, pos2)
+
+        pos2 = pos2 + 20
+
+        e.Graphics.DrawString("Cambio: $" & TextBox4.Text, ReportFont2, Brushes.Chocolate, 160, pos2)
+
+        pos2 = pos2 + 50
+
+        e.Graphics.DrawString("Gracias por su compra!!", ReportFont, Brushes.Chocolate, 35, pos2)
+
+        pos2 = pos2 + 30
+
+        e.Graphics.DrawString("Las Américas, 55070 Ecatepec de Morelos, Méx.", ReportFont2, Brushes.Chocolate, 5, pos2)
+
+
+    End Sub
+
 
 
 End Class

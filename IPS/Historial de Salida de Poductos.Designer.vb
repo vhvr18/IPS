@@ -32,7 +32,7 @@ Partial Class Historial_de_Salida_de_Poductos
         'TextBox1
         '
         Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(12, 30)
+        Me.TextBox1.Location = New System.Drawing.Point(202, 30)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(210, 23)
         Me.TextBox1.TabIndex = 7
@@ -41,7 +41,7 @@ Partial Class Historial_de_Salida_de_Poductos
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(12, 9)
+        Me.Label1.Location = New System.Drawing.Point(202, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(152, 18)
         Me.Label1.TabIndex = 9
@@ -66,7 +66,7 @@ Partial Class Historial_de_Salida_de_Poductos
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(183, Byte), Integer), CType(CType(177, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(893, 506)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Label1)

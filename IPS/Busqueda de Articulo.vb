@@ -19,7 +19,7 @@ Public Class Busqueda_de_Articulo
 
 
     ''' <summary>
-    ''' Consultas buen mamalonas 
+    ''' Consultas bien mamalonas 
     ''' </summary>
 
 
@@ -42,7 +42,7 @@ Public Class Busqueda_de_Articulo
 
                 sql = "select productos.Codigo_Producto,productos.Descripcion, productos.Descripcion_Secundaria,productos.Categoria,inventario.Existencia, inventario.Precio 
                     from productos productos inner join inventario  inventario on productos.Codigo_Producto = inventario.Codigo_Producto 
-                    where productos.Codigo_Producto  = '" & objeto & "' order by productos.Descripcion"
+                    where productos.Codigo_Producto  = '" & objeto & "' order by inventario.Existencia desc"
 
                 Conectar()
                 da = New SqlDataAdapter(sql, con)
@@ -59,7 +59,7 @@ Public Class Busqueda_de_Articulo
 
                 sql = "select productos.Codigo_Producto,productos.Descripcion, productos.Descripcion_Secundaria,productos.Categoria,inventario.Existencia, inventario.Precio 
                     from productos productos inner join inventario  inventario on productos.Codigo_Producto = inventario.Codigo_Producto 
-                    where productos.Descripcion  like '%" & objeto & "%' or productos.Descripcion_Secundaria like '%" & objeto & "%' order by productos.Descripcion"
+                    where productos.Descripcion  like '%" & objeto & "%' or productos.Descripcion_Secundaria like '%" & objeto & "%' order by inventario.Existencia desc"
 
                 Conectar()
                 da = New SqlDataAdapter(sql, con)
@@ -110,14 +110,11 @@ Public Class Busqueda_de_Articulo
 
         DataGridView1.SelectionMode = DataGridView1.SelectionMode.FullRowSelect
 
-
         If DataGridView1.SelectedCells.Count <> 0 Then
 
             codart = DataGridView1.SelectedCells(0).Value.ToString
 
         End If
-
-
 
     End Sub
 
@@ -162,6 +159,21 @@ Public Class Busqueda_de_Articulo
         End If
 
 
+        If codLog = "costos" Then
+
+            If DataGridView1.SelectedCells.Count <> 0 Then
+
+                codart = DataGridView1.SelectedCells(0).Value.ToString
+
+            End If
+
+            Actualizar_Costos_y_Precios.TextBox1.Text = codart
+            Actualizar_Costos_y_Precios.MostrarDatos()
+
+            Me.Close()
+            codLog = ""
+
+        End If
 
 
 

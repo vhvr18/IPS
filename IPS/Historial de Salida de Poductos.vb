@@ -20,7 +20,7 @@ Public Class Historial_de_Salida_de_Poductos
                 ,[Cantidad_Retirada]
                 ,[Nueva_Existencia]
                 ,[usuario]
-                FROM [dbo].[Registro_SalidaDeArticulos] WHERE Codigo_Producto = " & code & " ORDER BY Fecha DESC"
+                FROM [dbo].[Registro_SalidaDeArticulos] WHERE Codigo_Producto = '" & code & "' ORDER BY Fecha DESC"
 
         Conectar()
         da = New SqlDataAdapter(sql, con)

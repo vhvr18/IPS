@@ -111,8 +111,6 @@ Public Class Principal
 
         End While
 
-
-
         horatotal = (horacompa / 60) 'regla de tres para saber que hora seria el total
 
         horamin = (horacompa Mod 60) 'sacamos el residuo de la division para saber los minutos exactos
@@ -299,6 +297,9 @@ Public Class Principal
     ''Load de la ventana 
     Private Sub Principal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+
+        ''Para que el contenido del menu se vea mas grande se le cambia la  configuracion ImageScalling 
+
         BackGround()
 
 
@@ -348,8 +349,13 @@ Public Class Principal
             EntradasToolStripMenuItem.Enabled = False
             SalidasToolStripMenuItem.Enabled = False
             ValorTotalToolStripMenuItem.Enabled = False
+            PedidosToolStripMenuItem.Enabled = False
+            ModificarCostoYPrecioToolStripMenuItem.Enabled = False
 
-        ElseIf Login.nivel = "GERENTE" Or Login.nivel = "ADMINISTRADOR" Then
+        ElseIf Login.nivel = "ADMINISTRADOR" Then
+
+        ElseIf Login.nivel = "GERENTE" Then
+            SistemaToolStripMenuItem.Enabled = False
 
         End If
 
@@ -373,7 +379,7 @@ Public Class Principal
 
 
 
-        Label1.Text = "SUCURSAL: " + idSucursal + "  ID: " + sucursal + "  USUARIO: " + Login.nombreCompleto + " - " + Login.nivel ''Imprimo en variable el usuario que ingreso
+        ToolStripLabel1.Text = "SUCURSAL: " + idSucursal + "  ID: " + sucursal + "  USUARIO: " + Login.nombreCompleto + " - " + Login.nivel ''Imprimo en variable el usuario que ingreso
 
 
 
@@ -381,7 +387,10 @@ Public Class Principal
 
     Private Sub UsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UsuariosToolStripMenuItem.Click
 
+        Usuarios.MdiParent = Me
         Usuarios.Show()
+
+
 
     End Sub
 
@@ -404,6 +413,7 @@ Public Class Principal
 
     Private Sub SistemaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SistemaToolStripMenuItem.Click
 
+        Configuracion.MdiParent = Me
         Configuracion.Show()
 
     End Sub
@@ -437,6 +447,7 @@ Public Class Principal
 
     Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
 
+        Valores.MdiParent = Me
         Valores.Show()
 
     End Sub
@@ -473,7 +484,11 @@ Public Class Principal
 
 
     Private Sub EntradasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EntradasToolStripMenuItem.Click
+
+
+        Historial_de_Productos.MdiParent = Me
         Historial_de_Productos.Show()
+
 
     End Sub
 
@@ -483,51 +498,93 @@ Public Class Principal
     End Sub
 
     Private Sub SalidasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalidasToolStripMenuItem.Click
+
+        Historial_de_Salida_de_Poductos.MdiParent = Me
         Historial_de_Salida_de_Poductos.Show()
+
 
     End Sub
 
 
     Private Sub ToolStripButton3_Click_1(sender As Object, e As EventArgs) Handles ToolStripButton3.Click
+
+
+        PuntoDeVenta.MdiParent = Me
         PuntoDeVenta.Show()
 
     End Sub
 
     Private Sub ToolStripButton4_Click(sender As Object, e As EventArgs) Handles ToolStripButton4.Click
 
+        CheckInOut.MdiParent = Me
         CheckInOut.Show()
+
 
     End Sub
 
     Private Sub VentasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VentasToolStripMenuItem.Click
+
+        Reportes.MdiParent = Me
         Reportes.Show()
+
+
     End Sub
 
     Private Sub AltaDeArtículoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AltaDeArtículoToolStripMenuItem.Click
+
+        Articulo.MdiParent = Me
         Articulo.Show()
+
     End Sub
 
     Private Sub EntradaDeArtículosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EntradaDeArtículosToolStripMenuItem.Click
+
+
+        Entrada_Articulos.MdiParent = Me
         Entrada_Articulos.Show()
+
+
     End Sub
 
     Private Sub SalidasDeArtículosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalidasDeArtículosToolStripMenuItem.Click
+        Salidas_Articulos.MdiParent = Me
         Salidas_Articulos.Show()
+
     End Sub
 
     Private Sub UbicacionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UbicacionesToolStripMenuItem.Click
+        Ubicaciones.MdiParent = Me
         Ubicaciones.Show()
+
     End Sub
     Private Sub PedidosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PedidosToolStripMenuItem.Click
+        Pedidos.MdiParent = Me
         Pedidos.Show()
+
     End Sub
 
     Private Sub InventarioToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles InventarioToolStripMenuItem.Click
+
+        Inventarios.MdiParent = Me
         Inventarios.Show()
+
+
     End Sub
 
     Private Sub ValorTotalToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ValorTotalToolStripMenuItem.Click
+        ValorTotal.MdiParent = Me
         ValorTotal.Show()
 
+
+    End Sub
+
+    Private Sub HistorialDeProductosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HistorialDeProductosToolStripMenuItem.Click
+
+    End Sub
+
+    Private Sub ModificarCostoYPrecioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ModificarCostoYPrecioToolStripMenuItem.Click
+        Actualizar_Costos_y_Precios.MdiParent = Me
+
+        Actualizar_Costos_y_Precios.Show()
     End Sub
 End Class

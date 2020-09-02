@@ -199,7 +199,7 @@ Partial Class Ubicaciones
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Location = New System.Drawing.Point(409, 316)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(114, 24)
+        Me.ComboBox1.Size = New System.Drawing.Size(153, 24)
         Me.ComboBox1.TabIndex = 2
         '
         'ComboBox2
@@ -209,7 +209,7 @@ Partial Class Ubicaciones
         Me.ComboBox2.FormattingEnabled = True
         Me.ComboBox2.Location = New System.Drawing.Point(409, 343)
         Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(114, 24)
+        Me.ComboBox2.Size = New System.Drawing.Size(153, 24)
         Me.ComboBox2.TabIndex = 3
         '
         'Button1
@@ -227,7 +227,7 @@ Partial Class Ubicaciones
         Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox1.Location = New System.Drawing.Point(409, 132)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(114, 23)
+        Me.TextBox1.Size = New System.Drawing.Size(208, 23)
         Me.TextBox1.TabIndex = 1
         '
         'Button2
@@ -388,7 +388,7 @@ Partial Class Ubicaciones
         Me.Panel2.Controls.Add(Me.ComboBox3)
         Me.Panel2.Controls.Add(Me.Label11)
         Me.Panel2.Controls.Add(Me.ComboBox4)
-        Me.Panel2.Location = New System.Drawing.Point(12, 42)
+        Me.Panel2.Location = New System.Drawing.Point(83, 39)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(478, 413)
         Me.Panel2.TabIndex = 25
@@ -419,9 +419,9 @@ Partial Class Ubicaciones
         Me.Panel1.Controls.Add(Me.Label8)
         Me.Panel1.Controls.Add(Me.Label18)
         Me.Panel1.Controls.Add(Me.Label17)
-        Me.Panel1.Location = New System.Drawing.Point(12, 42)
+        Me.Panel1.Location = New System.Drawing.Point(12, 39)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(551, 413)
+        Me.Panel1.Size = New System.Drawing.Size(635, 413)
         Me.Panel1.TabIndex = 26
         '
         'Label15
@@ -442,7 +442,7 @@ Partial Class Ubicaciones
         Me.ComboBox5.FormattingEnabled = True
         Me.ComboBox5.Location = New System.Drawing.Point(409, 226)
         Me.ComboBox5.Name = "ComboBox5"
-        Me.ComboBox5.Size = New System.Drawing.Size(114, 23)
+        Me.ComboBox5.Size = New System.Drawing.Size(153, 23)
         Me.ComboBox5.TabIndex = 18
         '
         'Label14
@@ -460,7 +460,7 @@ Partial Class Ubicaciones
         Me.TextBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox4.Location = New System.Drawing.Point(409, 197)
         Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(114, 23)
+        Me.TextBox4.Size = New System.Drawing.Size(208, 23)
         Me.TextBox4.TabIndex = 16
         '
         'TextBox3
@@ -468,7 +468,7 @@ Partial Class Ubicaciones
         Me.TextBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox3.Location = New System.Drawing.Point(409, 164)
         Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(114, 23)
+        Me.TextBox3.Size = New System.Drawing.Size(208, 23)
         Me.TextBox3.TabIndex = 15
         '
         'Ubicaciones
@@ -477,7 +477,7 @@ Partial Class Ubicaciones
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.LemonChiffon
-        Me.ClientSize = New System.Drawing.Size(581, 467)
+        Me.ClientSize = New System.Drawing.Size(659, 467)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.CheckBox2)
         Me.Controls.Add(Me.CheckBox1)

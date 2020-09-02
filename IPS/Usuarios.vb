@@ -9,7 +9,7 @@ Public Class Usuarios
     ''Metodo para agregar los datos al listbox
     Public Sub RellenarList()
 
-        sql = "Select usuario from Usuarios where id_Empleado > 1"
+        sql = "Select usuario from Usuarios where NIVEL <> 'ADMINISTRADOR'"
         Conectar()
 
         com = New SqlCommand(sql, con)

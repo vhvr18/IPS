@@ -83,6 +83,22 @@ Public Class Salidas_Articulos
 
     End Sub
 
+    ''Metodo para calcular el numero de articulos retirados
+
+    Public Sub CountItem()
+
+        Dim totalArti As Integer
+
+        For a = 0 To DataGridView1.Rows.Count - 1
+
+            totalArti = totalArti + (Val(DataGridView1.Item(2, a).Value))
+
+        Next
+
+        Label20.Text = "Total de articulos: " & totalArti
+
+    End Sub
+
     'Metodo para mostrar datos de un articulo guardado
     Public Sub Codigo_Producto()
 
@@ -220,7 +236,7 @@ Public Class Salidas_Articulos
                 Codigo_Producto()
 
                 TextBox1.Enabled = False
-                DateTimePicker1.Select()
+                TextBox7.Select()
 
 
             ElseIf codigo = "algo" Then
@@ -258,6 +274,8 @@ Public Class Salidas_Articulos
 
         Dim fecha As String = ""
         fecha = DateTimePicker1.Value.ToString("yyyy-MM-dd HH:mm:ss") ''Variables para la hora de entrada
+        'fecha = Date.Today.GetDateTimeFormats.ToString("yyyy-MM-dd HH:mm:ss")
+
 
         Dim codigo_producto As String
         Dim codigo_producto2 As String = ""
@@ -330,7 +348,7 @@ Public Class Salidas_Articulos
     End Sub
 
     Private Sub Salidas_Articulos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        DateTimePicker1.Value = Today
         sql = "delete SalidaDeArticulos"
         Ejecutar(sql)
         con.Close()
@@ -343,6 +361,7 @@ Public Class Salidas_Articulos
         If e.KeyCode = Keys.Enter Then
 
             Baja_Articulos()
+            CountItem()
 
         End If
 
@@ -352,5 +371,22 @@ Public Class Salidas_Articulos
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
         LlenarExcel()
 
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+        sql = "delete SalidaDeArticulos"
+        Ejecutar(sql)
+        con.Close()
+
+        Llenar_grids()
+
+        CountItem()
+
+
+    End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        TextBox1.Select()
     End Sub
 End Class

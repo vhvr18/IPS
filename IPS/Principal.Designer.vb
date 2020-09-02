@@ -44,15 +44,16 @@ Partial Class Principal
         Me.EntradaDeArtículosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalidasDeArtículosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UbicacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModificarCostoYPrecioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.ToolStrip2 = New System.Windows.Forms.ToolStrip()
+        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.ToolStrip1.SuspendLayout()
-        Me.Panel1.SuspendLayout()
+        Me.ToolStrip2.SuspendLayout()
         Me.SuspendLayout()
         '
         'ToolStrip1
@@ -123,7 +124,7 @@ Partial Class Principal
         Me.PedidosToolStripMenuItem.Image = Global.IPS.My.Resources.Resources.pedido
         Me.PedidosToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.PedidosToolStripMenuItem.Name = "PedidosToolStripMenuItem"
-        Me.PedidosToolStripMenuItem.Size = New System.Drawing.Size(205, 42)
+        Me.PedidosToolStripMenuItem.Size = New System.Drawing.Size(191, 42)
         Me.PedidosToolStripMenuItem.Text = "Pedido"
         '
         'InventarioToolStripMenuItem
@@ -132,7 +133,7 @@ Partial Class Principal
         Me.InventarioToolStripMenuItem.Image = Global.IPS.My.Resources.Resources.Inventario
         Me.InventarioToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.InventarioToolStripMenuItem.Name = "InventarioToolStripMenuItem"
-        Me.InventarioToolStripMenuItem.Size = New System.Drawing.Size(205, 42)
+        Me.InventarioToolStripMenuItem.Size = New System.Drawing.Size(191, 42)
         Me.InventarioToolStripMenuItem.Text = "Inventario"
         '
         'ValorTotalToolStripMenuItem
@@ -141,7 +142,7 @@ Partial Class Principal
         Me.ValorTotalToolStripMenuItem.Image = Global.IPS.My.Resources.Resources.valor
         Me.ValorTotalToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.ValorTotalToolStripMenuItem.Name = "ValorTotalToolStripMenuItem"
-        Me.ValorTotalToolStripMenuItem.Size = New System.Drawing.Size(205, 42)
+        Me.ValorTotalToolStripMenuItem.Size = New System.Drawing.Size(191, 42)
         Me.ValorTotalToolStripMenuItem.Text = "Valor Total"
         '
         'ToolStripSplitButton1
@@ -201,7 +202,7 @@ Partial Class Principal
         '
         'ArticulosToolStripMenuItem
         '
-        Me.ArticulosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AltaDeArtículoToolStripMenuItem, Me.EntradaDeArtículosToolStripMenuItem, Me.SalidasDeArtículosToolStripMenuItem, Me.UbicacionesToolStripMenuItem})
+        Me.ArticulosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AltaDeArtículoToolStripMenuItem, Me.EntradaDeArtículosToolStripMenuItem, Me.SalidasDeArtículosToolStripMenuItem, Me.UbicacionesToolStripMenuItem, Me.ModificarCostoYPrecioToolStripMenuItem})
         Me.ArticulosToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ArticulosToolStripMenuItem.Image = Global.IPS.My.Resources.Resources.barcode
         Me.ArticulosToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
@@ -214,7 +215,7 @@ Partial Class Principal
         Me.AltaDeArtículoToolStripMenuItem.Image = Global.IPS.My.Resources.Resources.registro
         Me.AltaDeArtículoToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.AltaDeArtículoToolStripMenuItem.Name = "AltaDeArtículoToolStripMenuItem"
-        Me.AltaDeArtículoToolStripMenuItem.Size = New System.Drawing.Size(260, 36)
+        Me.AltaDeArtículoToolStripMenuItem.Size = New System.Drawing.Size(295, 36)
         Me.AltaDeArtículoToolStripMenuItem.Text = "Alta de Artículo"
         '
         'EntradaDeArtículosToolStripMenuItem
@@ -222,7 +223,7 @@ Partial Class Principal
         Me.EntradaDeArtículosToolStripMenuItem.Image = Global.IPS.My.Resources.Resources.entra
         Me.EntradaDeArtículosToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.EntradaDeArtículosToolStripMenuItem.Name = "EntradaDeArtículosToolStripMenuItem"
-        Me.EntradaDeArtículosToolStripMenuItem.Size = New System.Drawing.Size(260, 36)
+        Me.EntradaDeArtículosToolStripMenuItem.Size = New System.Drawing.Size(295, 36)
         Me.EntradaDeArtículosToolStripMenuItem.Text = "Entrada de Artículos"
         '
         'SalidasDeArtículosToolStripMenuItem
@@ -230,16 +231,24 @@ Partial Class Principal
         Me.SalidasDeArtículosToolStripMenuItem.Image = Global.IPS.My.Resources.Resources.sal
         Me.SalidasDeArtículosToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.SalidasDeArtículosToolStripMenuItem.Name = "SalidasDeArtículosToolStripMenuItem"
-        Me.SalidasDeArtículosToolStripMenuItem.Size = New System.Drawing.Size(260, 36)
-        Me.SalidasDeArtículosToolStripMenuItem.Text = "Salidas de Artículos"
+        Me.SalidasDeArtículosToolStripMenuItem.Size = New System.Drawing.Size(295, 36)
+        Me.SalidasDeArtículosToolStripMenuItem.Text = "Salida de Artículos"
         '
         'UbicacionesToolStripMenuItem
         '
         Me.UbicacionesToolStripMenuItem.Image = Global.IPS.My.Resources.Resources.bdlupa
         Me.UbicacionesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.UbicacionesToolStripMenuItem.Name = "UbicacionesToolStripMenuItem"
-        Me.UbicacionesToolStripMenuItem.Size = New System.Drawing.Size(260, 36)
+        Me.UbicacionesToolStripMenuItem.Size = New System.Drawing.Size(295, 36)
         Me.UbicacionesToolStripMenuItem.Text = "Ubicaciones"
+        '
+        'ModificarCostoYPrecioToolStripMenuItem
+        '
+        Me.ModificarCostoYPrecioToolStripMenuItem.Image = Global.IPS.My.Resources.Resources.costos
+        Me.ModificarCostoYPrecioToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.ModificarCostoYPrecioToolStripMenuItem.Name = "ModificarCostoYPrecioToolStripMenuItem"
+        Me.ModificarCostoYPrecioToolStripMenuItem.Size = New System.Drawing.Size(295, 36)
+        Me.ModificarCostoYPrecioToolStripMenuItem.Text = "Modificar Costo y Precio"
         '
         'ToolStripMenuItem1
         '
@@ -264,35 +273,13 @@ Partial Class Principal
         Me.ToolStripButton1.Size = New System.Drawing.Size(70, 41)
         Me.ToolStripButton1.Text = "Salir"
         '
-        'Panel1
-        '
-        Me.Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Controls.Add(Me.Label2)
-        Me.Panel1.Location = New System.Drawing.Point(0, 716)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1369, 26)
-        Me.Panel1.TabIndex = 5
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(3, 1)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(51, 17)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Label1"
-        '
         'Label2
         '
         Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(1093, 1)
+        Me.Label2.Location = New System.Drawing.Point(1095, 714)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(51, 17)
         Me.Label2.TabIndex = 1
@@ -302,6 +289,24 @@ Partial Class Principal
         '
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
+        '
+        'ToolStrip2
+        '
+        Me.ToolStrip2.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.ToolStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel1})
+        Me.ToolStrip2.Location = New System.Drawing.Point(0, 711)
+        Me.ToolStrip2.Name = "ToolStrip2"
+        Me.ToolStrip2.Size = New System.Drawing.Size(1184, 25)
+        Me.ToolStrip2.TabIndex = 9
+        Me.ToolStrip2.Text = "ToolStrip2"
+        '
+        'ToolStripLabel1
+        '
+        Me.ToolStripLabel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.ToolStripLabel1.Font = New System.Drawing.Font("Segoe UI", 11.0!)
+        Me.ToolStripLabel1.Name = "ToolStripLabel1"
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(113, 22)
+        Me.ToolStripLabel1.Text = "ToolStripLabel1"
         '
         'Principal
         '
@@ -313,7 +318,8 @@ Partial Class Principal
         Me.BackgroundImage = Global.IPS.My.Resources.Resources.fondo
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.ClientSize = New System.Drawing.Size(1184, 736)
-        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.ToolStrip2)
         Me.Controls.Add(Me.ToolStrip1)
         Me.DoubleBuffered = True
         Me.ForeColor = System.Drawing.SystemColors.MenuText
@@ -328,9 +334,10 @@ Partial Class Principal
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
+        Me.ToolStrip2.ResumeLayout(False)
+        Me.ToolStrip2.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -339,8 +346,6 @@ Partial Class Principal
     Friend WithEvents UsuariosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SistemaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripButton1 As ToolStripButton
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Timer1 As Timer
     Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
@@ -361,4 +366,7 @@ Partial Class Principal
     Friend WithEvents PedidosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents InventarioToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ValorTotalToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStrip2 As ToolStrip
+    Friend WithEvents ToolStripLabel1 As ToolStripLabel
+    Friend WithEvents ModificarCostoYPrecioToolStripMenuItem As ToolStripMenuItem
 End Class

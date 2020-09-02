@@ -115,7 +115,7 @@ Public Class Reportes
     Public Sub EstadisticasXArticulos()
 
         Dim fecha As String = DateTimePicker1.Value.ToString("yyyy-MM-dd hh:mm:ss")         ''Obtenemos las fechas de la busqueda para saber el numero de tickets
-        Dim Fecha2 As String = DateTimePicker2.Value.ToString("yyyy-MM-dd hh:mm:ss")
+        Dim Fecha2 As String = DateTimePicker2.Value.ToString("yyyy-MM-dd 23:59:59")
 
         Dim noProductos, noTickets, noDescuentos As Integer                 ''Variable para obtener informacion e imprimir 
         Dim Descuentos As String = ""
@@ -139,8 +139,6 @@ Public Class Reportes
         If ComboBox1.SelectedIndex = 0 Then    ''Condicion para saber si se hara busqueda por usuario en especifico o todos
 
             If fecha = Fecha2 Then
-
-
 
                 sql = "Select count (*) from ventasxTickets where (DATEPART(yy, Fecha_Hora) = '" & DateTimePicker1.Value.Year.ToString() & "' AND DATEPART(mm, Fecha_Hora) = '" & DateTimePicker1.Value.Month.ToString() & "' AND DATEPART(dd, Fecha_Hora) = '" & DateTimePicker1.Value.Day.ToString() & "')"
                 Ejecutar(sql)
@@ -176,8 +174,6 @@ Public Class Reportes
         Else
 
             If fecha = Fecha2 Then
-
-
 
                 sql = "Select count (*) from ventasxTickets where (DATEPART(yy, Fecha_Hora) = '" & DateTimePicker1.Value.Year.ToString() & "' AND DATEPART(mm, Fecha_Hora) = '" & DateTimePicker1.Value.Month.ToString() & "' AND DATEPART(dd, Fecha_Hora) = '" & DateTimePicker1.Value.Day.ToString() & "') and Usuario = '" + ComboBox1.SelectedItem + "'"
                 Ejecutar(sql)
@@ -338,6 +334,7 @@ Public Class Reportes
     End Sub
 
     ''Metodo para llenar el grid de los reportes de ventas
+
     Public Sub LlenarGrid()             '' Llena el grid de la preventa 
 
         DataGridView1.Columns.Clear()  ''Limpia las columnas para que el devuelva de manera ordenada la informacion el el dgv 
@@ -380,6 +377,7 @@ Public Class Reportes
 
                 Else
 
+                    ''Por articulos
                     If CheckBox2.Checked = True Then
 
 
@@ -400,9 +398,9 @@ Public Class Reportes
                             EfectivoxArticulos()
 
                         Else
-
+                            ''Se reparo la consulta poniendo hora en la fecha 2 para que tome la fecha dos con una hora
                             dx = New DataTable
-                            sql = "select * from ventasArticulos where Fecha_Hora between '" & fecha & "' and '" & Fecha2 & "'and Usuario = '" + ComboBox1.SelectedItem + "' order by Fecha_Hora asc"
+                            sql = "select * from ventasArticulos where Fecha_Hora between '" & fecha & "' and '" & Fecha2 & " 23:59:59 ' and Usuario = '" + ComboBox1.SelectedItem + "' order by Fecha_Hora asc"
                             Conectar()
                             da = New SqlDataAdapter(sql, con)
                             da.Fill(dx)
@@ -419,7 +417,7 @@ Public Class Reportes
                     End If
 
 
-
+                    ''Por ticket 
                     If CheckBox1.Checked Then
 
 
@@ -440,9 +438,9 @@ Public Class Reportes
 
                         Else
 
-
+                            ''Se reparo la consulta poniendo hora en la fecha 2 para que tome la fecha dos con una hora
                             dx = New DataTable
-                            sql = "select * from ventasxTickets where Fecha_Hora between '" & fecha & "' and '" & Fecha2 & "' and Usuario = '" + ComboBox1.SelectedItem + "' order by Fecha_Hora asc"
+                            sql = "select * from ventasxTickets where Fecha_Hora between '" & fecha & "' and '" & Fecha2 & " 23:59:59'  and Usuario = '" + ComboBox1.SelectedItem + "' order by Fecha_Hora asc"
                             Conectar()
                             da = New SqlDataAdapter(sql, con)
                             da.Fill(dx)
@@ -462,10 +460,10 @@ Public Class Reportes
                     ''if por si desea consultar a todos
 
                     If ComboBox1.SelectedIndex = 0 And CheckBox1.Checked = True And fecha <> Fecha2 Then
-
+                        ''Se reparo la consulta poniendo hora en la fecha 2 para que tome la fecha dos con una hora
                         dx = New DataTable
                         'sql = "select * from ventasxTickets  where  Fecha_Hora between '" & año & "-" & mes & "-" & dia & "' and '" & año2 & "-" & mes2 & "-" & dia2 & "' order by Fecha_Hora asc "
-                        sql = "select * from ventasxTickets  where  Fecha_Hora between '" & fecha & "' and '" & Fecha2 & "' order by Fecha_Hora asc "
+                        sql = "select * from ventasxTickets  where  Fecha_Hora between '" & fecha & "' and '" & Fecha2 & " 23:59:59' order by Fecha_Hora asc "
 
                         'MessageBox.Show(año & " y " & mes & " y " & dia)
                         'MessageBox.Show(año2 & " y " & mes2 & " y " & dia2)
@@ -488,7 +486,7 @@ Public Class Reportes
 
                         dx = New DataTable
                         'sql = "select * from ventasArticulos  where  Fecha_Hora between '" & año & "-" & mes & "-" & dia & "' and '" & año2 & "-" & mes2 & "-" & dia2 & "' order by Fecha_Hora asc "
-                        sql = "select * from ventasArticulos  where  Fecha_Hora between '" & fecha & "' and '" & Fecha2 & "' order by Fecha_Hora asc "
+                        sql = "select * from ventasArticulos  where  Fecha_Hora between '" & fecha & "' and '" & Fecha2 & " 23:59:59' order by Fecha_Hora asc "
 
                         'MessageBox.Show(año & " y " & mes & "y " & dia)
                         'MessageBox.Show(año2 & " y " & mes2 & "y " & dia2)
@@ -506,7 +504,7 @@ Public Class Reportes
 
                     End If
 
-
+                    ''Todos por ticket
                     If ComboBox1.SelectedIndex = 0 And CheckBox1.Checked = True And fecha = Fecha2 Then
 
 
@@ -566,9 +564,13 @@ Public Class Reportes
     ''Load del form 
     Private Sub Reportes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        DateTimePicker1.Value = Today
+        DateTimePicker2.Value = Today
+
+
         Dim usuario As String = ""
 
-        sql = "Select usuario from usuarios where id_Empleado > 1"
+        sql = "Select usuario from usuarios where id_Empleado >= 1"
         Ejecutar(sql)
         com = New SqlCommand(sql, con)                          ''Leemos la tabla productos para saber si el prodcuto existe 
         dr = com.ExecuteReader

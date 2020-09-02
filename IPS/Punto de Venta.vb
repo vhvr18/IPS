@@ -28,7 +28,6 @@ Public Class PuntoDeVenta
     End Sub
 
     ''Calcula el total de la compra
-
     Public Sub Operacion()
 
         Dim total As Single                 ''Variable para calcular el total de venta
@@ -421,6 +420,9 @@ Public Class PuntoDeVenta
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
 
+        'Ticket.Show()   ''Quitar esta linea 
+
+
         If TextBox4.Text = "0" Or TextBox4.Text = "0.00" Then
 
         Else
@@ -452,7 +454,10 @@ Public Class PuntoDeVenta
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
 
+        Reportes.MdiParent = Principal
         Reportes.Show()
+
+
 
     End Sub
 End Class

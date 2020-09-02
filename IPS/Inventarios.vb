@@ -91,7 +91,7 @@ Public Class Inventarios
         dx = New DataTable
 
         sql = "select productos.Codigo_Producto,productos.Descripcion, productos.Descripcion_Secundaria,productos.Categoria,
-	    inventario.Existencia, inventario.Costo ,inventario.Precio, ubicacion.Anaquel, ubicacion.Nivel    
+	    inventario.Existencia, inventario.Precio, ubicacion.Anaquel, ubicacion.Nivel    
         from productos productos, inventario  inventario, ubicacion ubicacion where  productos.Codigo_Producto = inventario.Codigo_Producto and productos.Codigo_Producto = ubicacion.Codigo_Producto  order by Existencia asc
         "
 

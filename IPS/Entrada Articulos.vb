@@ -83,6 +83,23 @@ Public Class Entrada_Articulos
 
     End Sub
 
+
+    ''Metodo para calcular el numero de articulos ingresados
+
+    Public Sub CountItem()
+
+        Dim totalArti As Integer
+
+        For a = 0 To DataGridView1.Rows.Count - 1
+
+            totalArti = totalArti + (Val(DataGridView1.Item(2, a).Value))
+
+        Next
+
+        Label20.Text = "Total de articulos: " & totalArti
+
+    End Sub
+
     'Metodo para mostrar datos de un articulo guardado
     Public Sub Codigo_Producto()
 
@@ -190,7 +207,7 @@ Public Class Entrada_Articulos
 
     Private Sub TextBox9_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox9.KeyPress
 
-        If Char.IsNumber(e.KeyChar) Then
+        If Char.IsNumber(e.KeyChar) Then            ''Codigo para numeros y simbolos 
             e.Handled = False
         ElseIf Char.IsControl(e.KeyChar) Then
             e.Handled = False
@@ -260,7 +277,7 @@ Public Class Entrada_Articulos
                 Codigo_Producto()
 
                 TextBox1.Enabled = False
-                DateTimePicker1.Select()
+                TextBox11.Select()
 
             ElseIf codigo = "algo" Then
 
@@ -429,10 +446,6 @@ Public Class Entrada_Articulos
                 TextBox12.Text = "0"
 
                 TextBox1.Select()
-
-                ComboBox1.SelectedItem = Nothing
-
-
             End If
 
         End If
@@ -459,12 +472,14 @@ Public Class Entrada_Articulos
         If e.KeyCode = Keys.Enter Then
 
             Entrada_Articulos()
+            CountItem()
 
         End If
 
     End Sub
 
     Private Sub Entrada_Articulos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        DateTimePicker1.Value = Today
 
         sql = "delete EntradadeArticulos"
         Ejecutar(sql)
@@ -484,4 +499,22 @@ Public Class Entrada_Articulos
 
     End Sub
 
+    Private Sub TextBox11_TextChanged(sender As Object, e As EventArgs) Handles TextBox11.TextChanged
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        sql = "delete EntradadeArticulos"
+        Ejecutar(sql)
+        con.Close()
+
+        Llenar_grids()
+
+        CountItem()
+
+    End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        TextBox1.Select()
+    End Sub
 End Class

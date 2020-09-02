@@ -9,8 +9,9 @@ Public Class Ubicaciones
 
     Public Sub SinUbicacion()
 
+        ''COnsulta con un join para que me de los productos sin ubicacion con orden descendente de existencia 
         ListBox1.Items.Clear()
-        sql = "Select Codigo_Producto from Ubicacion where Anaquel  = 'POR DEFINIR' or Nivel='POR DEFINIR'"
+        sql = "SELECT U.Codigo_Producto FROM Ubicacion U INNER JOIN inventario I ON U.Codigo_Producto = I.Codigo_Producto WHERE  U.Anaquel  = 'POR DEFINIR' or U.Nivel='POR DEFINIR' OR U.Anaquel  = '' OR U.Nivel='' order by I.Existencia desc"
         Conectar()
 
         com = New SqlCommand(sql, con)
@@ -196,15 +197,12 @@ Public Class Ubicaciones
 
         ComboBox1.Text = Nothing
         ComboBox2.Text = Nothing
-
-
         ComboBox5.Text = Nothing
-
 
     End Sub
 
 
-    ''Modulo para actualizar info
+    ''Modulo para actualizar info por producto
 
     Public Sub Actualizar()
 
@@ -403,15 +401,12 @@ Public Class Ubicaciones
                         sql = "update dbo.ubicacion set Anaquel = '" + ComboBox3.SelectedItem + "', Nivel = '" + ComboBox4.SelectedItem +
                             "' where Codigo_Producto = '" + codigo + "'"
                         Ejecutar(sql)
-
-
-                        ComboBox3.Text = Nothing
-                        ComboBox4.Text = Nothing
-
-
+                        con.Close()
                     Next
 
                     MessageBox.Show("Productos actualizados satisfactoriamente", "Integrated Pharmacy System")
+                    ComboBox3.Text = Nothing
+                    ComboBox4.Text = Nothing
                     ListBox2.Items.Clear()
 
                 Else

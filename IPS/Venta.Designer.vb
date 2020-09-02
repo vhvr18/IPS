@@ -279,6 +279,9 @@ Partial Class Venta
         Me.Label11.TabIndex = 24
         Me.Label11.Text = "Tarjeta Bancaria $"
         '
+        'PrintDocument1
+        '
+        '
         'Venta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)

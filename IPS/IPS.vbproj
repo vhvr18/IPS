@@ -25,7 +25,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>64</ApplicationRevision>
+    <ApplicationRevision>74</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -85,9 +85,11 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>..\..\..\..\..\..\Program Files\Microsoft Office\Office16\ADDINS\Microsoft Power Query for Excel Integrated\bin\Microsoft.Office.Interop.Excel.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
@@ -108,6 +110,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actualizar Costos y Precios.Designer.vb">
+      <DependentUpon>Actualizar Costos y Precios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Actualizar Costos y Precios.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Articulo.Designer.vb">
       <DependentUpon>Articulo.vb</DependentUpon>
     </Compile>
@@ -227,6 +235,12 @@
     <Compile Include="Salidas Articulos.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Splash.Designer.vb">
+      <DependentUpon>Splash.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Splash.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ubicaciones.Designer.vb">
       <DependentUpon>Ubicaciones.vb</DependentUpon>
     </Compile>
@@ -259,6 +273,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Actualizar Costos y Precios.resx">
+      <DependentUpon>Actualizar Costos y Precios.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Articulo.resx">
       <DependentUpon>Articulo.vb</DependentUpon>
     </EmbeddedResource>
@@ -316,6 +333,9 @@
     <EmbeddedResource Include="Salidas Articulos.resx">
       <DependentUpon>Salidas Articulos.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Splash.resx">
+      <DependentUpon>Splash.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ubicaciones.resx">
       <DependentUpon>Ubicaciones.vb</DependentUpon>
     </EmbeddedResource>
@@ -357,6 +377,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo.ico" />
+    <None Include="Resources\costos.png" />
+    <None Include="Resources\backgroundLog.jpg" />
+    <None Include="Resources\backLogin.jpg" />
+    <None Include="Resources\pass.png" />
+    <None Include="Resources\user.png" />
     <None Include="Resources\valor.png" />
     <None Include="Resources\fondo.png" />
     <None Include="Resources\task.png" />

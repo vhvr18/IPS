@@ -69,24 +69,25 @@ Partial Class Reportes
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.BackgroundColor = System.Drawing.Color.Linen
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(27, 139)
+        Me.DataGridView1.Location = New System.Drawing.Point(27, 107)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.Size = New System.Drawing.Size(1013, 237)
+        Me.DataGridView1.Size = New System.Drawing.Size(1013, 269)
         Me.DataGridView1.TabIndex = 0
         '
         'DateTimePicker1
         '
         Me.DateTimePicker1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePicker1.Location = New System.Drawing.Point(27, 29)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(27, 19)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(252, 21)
         Me.DateTimePicker1.TabIndex = 1
+        Me.DateTimePicker1.Value = New Date(2020, 6, 11, 0, 0, 0, 0)
         '
         'DateTimePicker2
         '
         Me.DateTimePicker2.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePicker2.Location = New System.Drawing.Point(27, 90)
+        Me.DateTimePicker2.Location = New System.Drawing.Point(27, 80)
         Me.DateTimePicker2.Name = "DateTimePicker2"
         Me.DateTimePicker2.Size = New System.Drawing.Size(252, 21)
         Me.DateTimePicker2.TabIndex = 2
@@ -108,7 +109,7 @@ Partial Class Reportes
         Me.ComboBox1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"Todos"})
-        Me.ComboBox1.Location = New System.Drawing.Point(338, 29)
+        Me.ComboBox1.Location = New System.Drawing.Point(338, 19)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(148, 26)
         Me.ComboBox1.TabIndex = 4
@@ -117,7 +118,7 @@ Partial Class Reportes
         '
         Me.CheckBox1.AutoSize = True
         Me.CheckBox1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
-        Me.CheckBox1.Location = New System.Drawing.Point(554, 41)
+        Me.CheckBox1.Location = New System.Drawing.Point(554, 31)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(76, 22)
         Me.CheckBox1.TabIndex = 5
@@ -128,7 +129,7 @@ Partial Class Reportes
         '
         Me.CheckBox2.AutoSize = True
         Me.CheckBox2.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
-        Me.CheckBox2.Location = New System.Drawing.Point(554, 69)
+        Me.CheckBox2.Location = New System.Drawing.Point(554, 59)
         Me.CheckBox2.Name = "CheckBox2"
         Me.CheckBox2.Size = New System.Drawing.Size(90, 22)
         Me.CheckBox2.TabIndex = 6
@@ -139,7 +140,7 @@ Partial Class Reportes
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
-        Me.Label1.Location = New System.Drawing.Point(24, 9)
+        Me.Label1.Location = New System.Drawing.Point(24, -1)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(35, 18)
         Me.Label1.TabIndex = 8
@@ -149,7 +150,7 @@ Partial Class Reportes
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
-        Me.Label2.Location = New System.Drawing.Point(24, 63)
+        Me.Label2.Location = New System.Drawing.Point(24, 53)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(25, 18)
         Me.Label2.TabIndex = 9
@@ -159,7 +160,7 @@ Partial Class Reportes
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
-        Me.Label3.Location = New System.Drawing.Point(337, 9)
+        Me.Label3.Location = New System.Drawing.Point(337, -1)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(70, 18)
         Me.Label3.TabIndex = 10
@@ -169,7 +170,7 @@ Partial Class Reportes
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
-        Me.Label4.Location = New System.Drawing.Point(537, 9)
+        Me.Label4.Location = New System.Drawing.Point(537, -1)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(125, 18)
         Me.Label4.TabIndex = 11

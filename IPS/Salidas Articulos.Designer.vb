@@ -44,6 +44,8 @@ Partial Class Salidas_Articulos
         Me.Label18 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -52,7 +54,7 @@ Partial Class Salidas_Articulos
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
-        Me.Label6.Location = New System.Drawing.Point(360, 204)
+        Me.Label6.Location = New System.Drawing.Point(359, 232)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(80, 18)
         Me.Label6.TabIndex = 58
@@ -61,11 +63,11 @@ Partial Class Salidas_Articulos
         'TextBox7
         '
         Me.TextBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox7.Location = New System.Drawing.Point(350, 223)
+        Me.TextBox7.Location = New System.Drawing.Point(349, 251)
         Me.TextBox7.MaxLength = 3
         Me.TextBox7.Name = "TextBox7"
         Me.TextBox7.Size = New System.Drawing.Size(100, 23)
-        Me.TextBox7.TabIndex = 6
+        Me.TextBox7.TabIndex = 8
         Me.TextBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Button2
@@ -83,7 +85,7 @@ Partial Class Salidas_Articulos
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
-        Me.Label11.Location = New System.Drawing.Point(38, 75)
+        Me.Label11.Location = New System.Drawing.Point(37, 154)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(200, 18)
         Me.Label11.TabIndex = 53
@@ -93,7 +95,7 @@ Partial Class Salidas_Articulos
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
-        Me.Label5.Location = New System.Drawing.Point(249, 204)
+        Me.Label5.Location = New System.Drawing.Point(248, 232)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(89, 18)
         Me.Label5.TabIndex = 52
@@ -103,7 +105,7 @@ Partial Class Salidas_Articulos
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
-        Me.Label4.Location = New System.Drawing.Point(147, 204)
+        Me.Label4.Location = New System.Drawing.Point(146, 232)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(85, 18)
         Me.Label4.TabIndex = 51
@@ -113,7 +115,7 @@ Partial Class Salidas_Articulos
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
-        Me.Label3.Location = New System.Drawing.Point(39, 204)
+        Me.Label3.Location = New System.Drawing.Point(38, 232)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(90, 18)
         Me.Label3.TabIndex = 50
@@ -123,7 +125,7 @@ Partial Class Salidas_Articulos
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
-        Me.Label2.Location = New System.Drawing.Point(28, 42)
+        Me.Label2.Location = New System.Drawing.Point(27, 121)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(210, 18)
         Me.Label2.TabIndex = 49
@@ -133,7 +135,7 @@ Partial Class Salidas_Articulos
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
-        Me.Label1.Location = New System.Drawing.Point(91, 11)
+        Me.Label1.Location = New System.Drawing.Point(90, 90)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(147, 18)
         Me.Label1.TabIndex = 48
@@ -143,57 +145,57 @@ Partial Class Salidas_Articulos
         '
         Me.TextBox6.Enabled = False
         Me.TextBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox6.Location = New System.Drawing.Point(244, 223)
+        Me.TextBox6.Location = New System.Drawing.Point(243, 251)
         Me.TextBox6.Name = "TextBox6"
         Me.TextBox6.Size = New System.Drawing.Size(100, 23)
-        Me.TextBox6.TabIndex = 47
+        Me.TextBox6.TabIndex = 7
         Me.TextBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'TextBox5
         '
         Me.TextBox5.Enabled = False
         Me.TextBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox5.Location = New System.Drawing.Point(138, 223)
+        Me.TextBox5.Location = New System.Drawing.Point(137, 251)
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.Size = New System.Drawing.Size(100, 23)
-        Me.TextBox5.TabIndex = 46
+        Me.TextBox5.TabIndex = 6
         Me.TextBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'TextBox4
         '
         Me.TextBox4.Enabled = False
         Me.TextBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox4.Location = New System.Drawing.Point(31, 223)
+        Me.TextBox4.Location = New System.Drawing.Point(30, 251)
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.Size = New System.Drawing.Size(100, 23)
-        Me.TextBox4.TabIndex = 45
+        Me.TextBox4.TabIndex = 5
         Me.TextBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'TextBox3
         '
         Me.TextBox3.Enabled = False
         Me.TextBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox3.Location = New System.Drawing.Point(248, 74)
+        Me.TextBox3.Location = New System.Drawing.Point(247, 153)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(205, 23)
-        Me.TextBox3.TabIndex = 3
+        Me.TextBox3.TabIndex = 4
         '
         'TextBox2
         '
         Me.TextBox2.Enabled = False
         Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(248, 41)
+        Me.TextBox2.Location = New System.Drawing.Point(247, 120)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(205, 23)
-        Me.TextBox2.TabIndex = 2
+        Me.TextBox2.TabIndex = 3
         '
         'TextBox1
         '
         Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(248, 6)
+        Me.TextBox1.Location = New System.Drawing.Point(247, 85)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(205, 23)
-        Me.TextBox1.TabIndex = 1
+        Me.TextBox1.TabIndex = 2
         '
         'DataGridView1
         '
@@ -221,7 +223,7 @@ Partial Class Salidas_Articulos
         '
         Me.Label19.AutoSize = True
         Me.Label19.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
-        Me.Label19.Location = New System.Drawing.Point(152, 136)
+        Me.Label19.Location = New System.Drawing.Point(151, 38)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(86, 18)
         Me.Label19.TabIndex = 69
@@ -231,30 +233,51 @@ Partial Class Salidas_Articulos
         '
         Me.Label18.AutoSize = True
         Me.Label18.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
-        Me.Label18.Location = New System.Drawing.Point(91, 107)
+        Me.Label18.Location = New System.Drawing.Point(102, 9)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(147, 18)
+        Me.Label18.Size = New System.Drawing.Size(135, 18)
         Me.Label18.TabIndex = 68
-        Me.Label18.Text = "Fecha de Ingreso"
+        Me.Label18.Text = "Fecha de Salida"
         '
         'ComboBox1
         '
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"CONSUMO PERSONAL", "MEDICAMENTO CADUCADO", "PRODUCTO DAÑADO", "TRANSFERENCIA DE SUCURSAL"})
-        Me.ComboBox1.Location = New System.Drawing.Point(248, 133)
+        Me.ComboBox1.Location = New System.Drawing.Point(247, 35)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(193, 21)
-        Me.ComboBox1.TabIndex = 5
+        Me.ComboBox1.TabIndex = 1
         '
         'DateTimePicker1
         '
         Me.DateTimePicker1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(248, 106)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(247, 8)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(85, 21)
-        Me.DateTimePicker1.TabIndex = 4
+        Me.DateTimePicker1.TabIndex = 0
+        Me.DateTimePicker1.Value = New Date(2020, 5, 31, 20, 1, 58, 0)
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.Location = New System.Drawing.Point(478, 498)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(0, 18)
+        Me.Label20.TabIndex = 70
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Button1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
+        Me.Button1.Location = New System.Drawing.Point(954, 493)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(124, 41)
+        Me.Button1.TabIndex = 71
+        Me.Button1.Text = "Limpiar Tabla"
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'Salidas_Articulos
         '
@@ -262,7 +285,9 @@ Partial Class Salidas_Articulos
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(183, Byte), Integer), CType(CType(177, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1090, 499)
+        Me.ClientSize = New System.Drawing.Size(1090, 535)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.Label20)
         Me.Controls.Add(Me.Label19)
         Me.Controls.Add(Me.Label18)
         Me.Controls.Add(Me.ComboBox1)
@@ -317,4 +342,6 @@ Partial Class Salidas_Articulos
     Friend WithEvents Label18 As Label
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents Label20 As Label
+    Friend WithEvents Button1 As Button
 End Class

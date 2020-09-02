@@ -627,6 +627,7 @@ Public Class Articulo
 
     Private Sub Articulo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        DateTimePicker1.Value = Today
         LlenarCombox()
 
         sql = "Select * from Sucursales"
