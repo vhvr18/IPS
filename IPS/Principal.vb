@@ -19,6 +19,8 @@ Public Class Principal
 
     Dim idRegistro As Integer
 
+    Public user As String = ""     ''Variable para guardar el usuario activo
+
     ''Variable con la cual voy a controlar que ventana de valores voy a abrir 
     Public Opcion As Integer = 0
 
@@ -296,6 +298,14 @@ Public Class Principal
 
     ''Load de la ventana 
     Private Sub Principal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        user = Login.usuario
+
+        If user = "" Then
+            user = Login.TextBox1.Text
+        Else
+
+        End If
 
 
         ''Para que el contenido del menu se vea mas grande se le cambia la  configuracion ImageScalling 

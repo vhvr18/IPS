@@ -315,7 +315,7 @@ Partial Class Principal
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.BackgroundImage = Global.IPS.My.Resources.Resources.fondo
+        Me.BackgroundImage = Global.IPS.My.Resources.Resources.fondo2
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.ClientSize = New System.Drawing.Size(1184, 736)
         Me.Controls.Add(Me.Label2)

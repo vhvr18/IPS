@@ -4,7 +4,7 @@ Public Class Login
     Dim da As SqlDataAdapter
 
 
-    Public usuario As String            ''Esta en publica porque la usaremos para saber quien esta en sesion el la principal
+    Public usuario As String            ''Esta en publica porque la usaremos para saber quien esta en sesion en el form principal
     Public nombreCompleto As String
     Public nivel As String
 

@@ -69,8 +69,15 @@ Public Class Venta
 
                         If cantidad = 0 Or descripccion = "" Then     ''If para evitar el bus en los registros de ventas  ya que agrega ventas a la tabla tickets y articulos con valores en cero y sin descripcion 
 
+                            ''No se realiza nada, ya que de lo contrario ingresa ventas sin cantidad o descripcion
+
                         Else
 
+                            If Login.usuario = "" Then  ''Forzamos el usuario de venta ya que en ocasiones pone ventas sin nameuser
+                                Login.usuario = Principal.user
+                            Else
+
+                            End If
 
                             sql = "insert into ventasArticulos values('" + fecha + "','" + id + "','" + codArticulo + "','" + descripccion +
                                        "','" + descripcion2 + "','" + ComboBox2.SelectedItem + "','" & cantidad &
@@ -84,13 +91,19 @@ Public Class Venta
 
                         End If
 
-                    Else
+                    Else            ''De lo contrario son varios articulos
 
                         If cantidad = 0 Or descripccion = "" Then
 
-
+                            ''No se realiza nada, ya que de lo contrario ingresa ventas sin cantidad o descripcion
 
                         Else
+
+                            If Login.usuario = "" Then
+                                Login.usuario = Principal.user
+                            Else
+
+                            End If
 
                             sql = "insert into ventasArticulos values('" + fecha + "','" + id + "','" + codArticulo + "','" + descripccion +
                                                             "','" + descripcion2 + "','" + ComboBox2.SelectedItem + "','" & cantidad &
@@ -103,16 +116,12 @@ Public Class Venta
 
                         End If
 
-
-
                     End If
-
 
                     'actualizar la tabla de inventarios el campo de cantidad
                     sql = "update dbo.inventario set Existencia = Existencia - " & cantidad & " where Codigo_Producto = '" + codArticulo + "'"
                     Ejecutar(sql)
                     con.Close()
-
 
                 Else
 
@@ -135,7 +144,13 @@ Public Class Venta
             TextBox5.Select()
 
 
-        Else
+        Else                ''Aqui se inserta la venta a la tabla por tickets
+
+            If Login.usuario = "" Then
+                Login.usuario = Principal.user
+            Else
+
+            End If
 
             ''insertar a la tabla ventasxtickets  la venta en general  venta por ticket 
             sql = "insert into ventasxTickets values('" + fecha + "','" + id + "','" + ComboBox2.SelectedItem + "','" & PuntoDeVenta.TextBox5.Text &
