@@ -28,6 +28,7 @@ Public Class Venta
 
         Dim cantidad As Integer
         Dim precio As Double
+        Dim totalArt As Double
 
 
         Dim compraNegada As String = ""         ''Variable que se utiliza para registrar la venta por ticket 
@@ -58,6 +59,7 @@ Public Class Venta
                     descripcion2 = dr(2)
                     cantidad = dr(3)
                     precio = dr(4)
+                    totalArt = dr(5)
 
                 End While
 
@@ -67,7 +69,7 @@ Public Class Venta
 
                     If PuntoDeVenta.DataGridView1.Rows.Count = 1 Then        ''Validacion si en el carrito solo hay un articulo
 
-                        If cantidad = 0 Or descripccion = "" Then     ''If para evitar el bus en los registros de ventas  ya que agrega ventas a la tabla tickets y articulos con valores en cero y sin descripcion 
+                        If cantidad = 0 Or descripccion = "" Then     ''If para evitar el bug en los registros de ventas  ya que agrega ventas a la tabla tickets y articulos con valores en cero y sin descripcion 
 
                             ''No se realiza nada, ya que de lo contrario ingresa ventas sin cantidad o descripcion
 
@@ -81,8 +83,8 @@ Public Class Venta
 
                             sql = "insert into ventasArticulos values('" + fecha + "','" + id + "','" + codArticulo + "','" + descripccion +
                                        "','" + descripcion2 + "','" + ComboBox2.SelectedItem + "','" & cantidad &
-                                       "','" & precio & "','" + ComboBox3.Text + "','" & totalApagar & "','" & (precio * cantidad) &
-                                       "','" & Val(TextBox3.Text) & "','" + Login.usuario + "')"
+                                       "','" & precio & "','" + ComboBox3.Text + "','" & totalApagar & "','" & totalArt &
+                                       "','" & totalArt & "','" + Login.usuario + "')"
 
 
                             Ejecutar(sql)
@@ -107,8 +109,8 @@ Public Class Venta
 
                             sql = "insert into ventasArticulos values('" + fecha + "','" + id + "','" + codArticulo + "','" + descripccion +
                                                             "','" + descripcion2 + "','" + ComboBox2.SelectedItem + "','" & cantidad &
-                                                            "','" & precio & "','" + ComboBox3.Text + "','" & totalApagar & "','" & (precio * cantidad) &
-                                                            "','" & (precio * cantidad) & "','" + Login.usuario + "')"
+                                                            "','" & precio & "','" + ComboBox3.Text + "','" & totalApagar & "','" & totalArt &
+                                                            "','" & totalArt & "','" + Login.usuario + "')"
 
 
                             Ejecutar(sql)

@@ -284,7 +284,7 @@ Partial Class Entrada_Articulos
         'TextBox11
         '
         Me.TextBox11.Location = New System.Drawing.Point(238, 33)
-        Me.TextBox11.MaxLength = 3
+        Me.TextBox11.MaxLength = 10
         Me.TextBox11.Name = "TextBox11"
         Me.TextBox11.Size = New System.Drawing.Size(74, 20)
         Me.TextBox11.TabIndex = 7

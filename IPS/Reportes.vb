@@ -85,11 +85,13 @@ Public Class Reportes
     ''Calculamos los datos estadisticos
     Public Sub EstadisticasXTicket()
 
+        Dim fecha As String = DateTimePicker1.Value.ToString("yyyy-MM-dd 00:00:00")         ''Obtenemos las fechas para usarlas en el procedimiento
+        Dim Fecha2 As String = DateTimePicker2.Value.ToString("yyyy-MM-dd 23:59:59")
+
         Dim noProductos, noTickets, noDescuentos As Integer     ''Variables para obtener los datos
         Dim Descuentos As String = ""
 
         noDescuentos = 0
-
 
         For a = 0 To DataGridView1.Rows.Count - 1   ''ciclo para calcular los datos como num de tickets, descuentos y de productos 
 
@@ -114,7 +116,7 @@ Public Class Reportes
     ''EstadisticasXArticulos
     Public Sub EstadisticasXArticulos()
 
-        Dim fecha As String = DateTimePicker1.Value.ToString("yyyy-MM-dd hh:mm:ss")         ''Obtenemos las fechas de la busqueda para saber el numero de tickets
+        Dim fecha As String = DateTimePicker1.Value.ToString("yyyy-MM-dd 00:00:00")         ''Obtenemos las fechas de la busqueda para saber el numero de tickets
         Dim Fecha2 As String = DateTimePicker2.Value.ToString("yyyy-MM-dd 23:59:59")
 
         Dim noProductos, noTickets, noDescuentos As Integer                 ''Variable para obtener informacion e imprimir 
@@ -123,9 +125,23 @@ Public Class Reportes
         Dim Tickets2 As String = ""
 
 
+        sql = "spGetNumProductosReportes '" + fecha + "','" + Fecha2 + "','" + ComboBox1.SelectedItem + "'"
+        Ejecutar(sql)
+
+        com = New SqlCommand(sql, con)                          ''asignamos el valor
+        dr = com.ExecuteReader
+
+        While dr.Read
+
+            noProductos = dr(0)
+
+        End While
+        con.Close()
+
+
         For a = 0 To DataGridView1.Rows.Count - 1                           ''Ciclo para calcular los datos como descuentos y noprodcutos 
 
-            noProductos = noProductos + (Val(DataGridView1.Item(6, a).Value))
+            'noProductos = noProductos + (Val(DataGridView1.Item(6, a).Value))
 
             Descuentos = (Val(DataGridView1.Item(8, a).Value))
 

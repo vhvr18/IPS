@@ -23,7 +23,7 @@ Module Modulos
     'Conexion central
     Public Sub Conectar()
         con = New SqlConnection
-        con.ConnectionString = (" server =localhost;database =RECOVERY ; integrated security = true")
+        con.ConnectionString = (" server =localhost;database =IPSDesa1 ; integrated security = true")
         con.Open()
     End Sub
 

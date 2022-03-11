@@ -7,7 +7,7 @@ Public Class PuntoDeVenta
 
     Dim cont As Integer
 
-    Dim codart As String                ''Variable para quitar articlos de la tabla de preventas o agregar 
+    Dim codart As String                ''Variable para quitar articlos de la tabla de preventas  
 
 
     Public totalArticulos As Integer       ''Variable para calcular el total de los articulos
@@ -22,29 +22,45 @@ Public Class PuntoDeVenta
         da = New SqlDataAdapter(sql, con)
         da.Fill(dx)
         DataGridView1.DataSource = dx
-
         con.Close()
+
+        ''Codigo para poner dos decimales en los grids
+        DataGridView1.Columns(4).DefaultCellStyle.Format = "N2"
+        DataGridView1.Columns(5).DefaultCellStyle.Format = "N2"
 
     End Sub
 
-    ''Calcula el total de la compra
+    ''Calcula el total de la compra y el numero de productos 
     Public Sub Operacion()
 
         Dim total As Single                 ''Variable para calcular el total de venta
         Dim totalArti As Integer
 
 
-        For a = 0 To DataGridView1.Rows.Count - 1
+        For a = 0 To DataGridView1.Rows.Count - 1                   ''Obtener el total de la venta
 
-            total = total + (Val(DataGridView1.Item(3, a).Value * DataGridView1.Item(4, a).Value))
+            total = total + (Val(DataGridView1.Item(5, a).Value))
 
         Next
 
-        For a = 0 To DataGridView1.Rows.Count - 1
+        For a = 0 To DataGridView1.Rows.Count - 1                   ''Obtener el numero de productos
 
             totalArti = totalArti + (Val(DataGridView1.Item(3, a).Value))
 
         Next
+
+        sql = "EXEC spGetNumProductosPreventa"
+        Ejecutar(sql)
+
+        com = New SqlCommand(sql, con)                          ''Obtenemos el numero de articulos en el carrito
+        dr = com.ExecuteReader
+
+        While dr.Read
+
+            totalArti = dr(0)
+
+        End While
+        con.Close()
 
         TextBox4.Text = Format(total, "$#,##0.00")
         TextBox5.Text = totalArti
@@ -65,9 +81,13 @@ Public Class PuntoDeVenta
 
         Dim precio As Double     ''Variable para llevar el control del total en la tabla preventas
 
+        Dim tipoProducto As String = ""             ''Variable con la que verificare el tipo de articulo (Granel,fisico, virtual)
+        Dim pesajeProducto As Integer = 0           ''Variable para obtener el precio por kilo 
+
+
         Format(precio, "00.00")
 
-        sql = "Select Codigo_Producto from productos where Codigo_Producto= '" + producto + "'"
+        sql = "Select Codigo_Producto,Tipo_Articulo from productos where Codigo_Producto= '" + producto + "'"
         Ejecutar(sql)
 
         com = New SqlCommand(sql, con)                          ''Leemos la tabla productos para saber si el prodcuto existe 
@@ -76,6 +96,7 @@ Public Class PuntoDeVenta
         While dr.Read
 
             existe = dr(0)
+            tipoProducto = dr(1)
 
         End While
         con.Close()
@@ -118,47 +139,87 @@ Public Class PuntoDeVenta
 
         Else
 
-            If descripcion = "" Then
+            If tipoProducto = "GRANEL" Then
 
-                If existencia > 0 Then                  ''Se ingresa por primera vez en el grid
+                If descripcion = "" Then
 
-                    sql = "Exec sp_InsVenta '" + producto + "'"
-                    Ejecutar(sql)
-                    con.Close()
+                    If existencia > 0 Then                  ''Se ingresa por primera vez en el grid
 
-                    LlenarGrid()
+                        pesajeProducto = InputBox("Agrega el peso del producto", "Integrated Pharmacy System")
 
-                    cont = cant
-                    producto = ""
+                        If pesajeProducto > existencia Then
 
+                            MessageBox.Show("No hay producto suficiente ", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.None)
+
+                        Else
+
+                            sql = "Exec sp_InsVentaXGramos '" + producto + "'," & pesajeProducto & ""
+                            Ejecutar(sql)
+                            con.Close()
+
+                            LlenarGrid()
+
+                            cont = cant
+                            producto = ""
+
+                        End If
+
+                    Else
+
+                        MessageBox.Show("El producto no tiene existencias.", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.None)
+
+                    End If
                 Else
 
-                    MessageBox.Show("El producto no tiene existencias.", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.None)
-
-
-                End If
-            Else
-
-                If cant >= existencia Then
-
-                    MessageBox.Show("No hay producto suficiente ", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.None)
-
-                Else
-
-                    cont = cant + 1
-
-
-                    sql = "update dbo.preventas set cantidad = '" & cont & "', Total = '" & (cont * precio) & "' where codigo_producto = '" + producto + "'"
-                    Ejecutar(sql)
-
-                    con.Close()
-
-                    LlenarGrid()
+                    MessageBox.Show("Ya agregaste este producto al carrito, para agregar una cantidad diferente. Selecciona el producto y presiona el boton agregar cantidad", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.None)
 
                 End If
 
+            Else                        ''Productos por piezas
 
-            End If
+                If descripcion = "" Then
+
+                    If existencia > 0 Then                  ''Se ingresa por primera vez en el grid
+
+                        sql = "Exec sp_InsVenta '" + producto + "'"
+                        Ejecutar(sql)
+                        con.Close()
+
+                        LlenarGrid()
+
+                        cont = cant
+                        producto = ""
+
+                    Else
+
+                        MessageBox.Show("El producto no tiene existencias.", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.None)
+
+
+                    End If
+                Else
+
+                    If cant >= existencia Then
+
+                        MessageBox.Show("No hay producto suficiente ", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.None)
+
+                    Else
+
+                        cont = cant + 1
+
+
+                        sql = "update dbo.preventas set cantidad = '" & cont & "', Total = '" & (cont * precio) & "' where codigo_producto = '" + producto + "'"
+                        Ejecutar(sql)
+
+                        con.Close()
+
+                        LlenarGrid()
+
+                    End If
+
+
+                End If
+
+            End If ''Aqui va 
 
         End If
 
@@ -177,22 +238,39 @@ Public Class PuntoDeVenta
         Dim precio As Double
         Dim total As Double
 
+        Dim tipoArticulo As String = ""
+
         sql = "select * from preventas where Codigo_Producto = '" + codigo + "'"
         Ejecutar(sql)
 
-        com = New SqlCommand(sql, con)                          ''Leemos la tabla productos para saber si el prodcuto existe 
+        com = New SqlCommand(sql, con)
         dr = com.ExecuteReader
 
         While dr.Read
 
-            cantidad = dr(3) '
+            cantidad = dr(3)
             precio = dr(4)
             total = dr(5)
 
         End While
         con.Close()
 
-        If cantidad <= 1 Then
+        sql = "select Tipo_Articulo from productos where Codigo_Producto = '" + codigo + "'"
+        Ejecutar(sql)
+
+        com = New SqlCommand(sql, con)
+        dr = com.ExecuteReader
+
+        While dr.Read
+
+            tipoArticulo = dr(0)
+
+        End While
+        con.Close()
+
+
+
+        If tipoArticulo = "GRANEL" Then
 
             sql = "delete preventas where Codigo_Producto = '" + codigo + "'"
             Ejecutar(sql)
@@ -203,17 +281,27 @@ Public Class PuntoDeVenta
 
         Else
 
-            sql = "Update preventas set cantidad = cantidad - 1, Total ='" & (total - precio) & "' where Codigo_Producto = '" + codigo + "'"
-            Ejecutar(sql)
-            con.Close()
+            If cantidad <= 1 Then
 
-            LlenarGrid()
-            Operacion()
+                sql = "delete preventas where Codigo_Producto = '" + codigo + "'"
+                Ejecutar(sql)
+                con.Close()
 
+                LlenarGrid()
+                Operacion()
 
+            Else
+
+                sql = "Update preventas set cantidad = cantidad - 1, Total ='" & (total - precio) & "' where Codigo_Producto = '" + codigo + "'"
+                Ejecutar(sql)
+                con.Close()
+
+                LlenarGrid()
+                Operacion()
+
+            End If
 
         End If
-
 
         con.Close()
 
@@ -227,6 +315,8 @@ Public Class PuntoDeVenta
         Dim existencia As Integer
 
         Dim precio As Double
+
+        Dim tipoArticulo As String = ""
 
         Try
 
@@ -257,6 +347,21 @@ Public Class PuntoDeVenta
                     End While
                     con.Close()
 
+                    sql = "Select Tipo_Articulo from productos where Codigo_Producto= '" & codart & "'"
+                    Ejecutar(sql)
+
+                    com = New SqlCommand(sql, con)                          ''Leemos la tabla productos para saber si el prodcuto existe 
+                    dr = com.ExecuteReader
+
+                    While dr.Read
+
+                        tipoArticulo = dr(0)
+
+                    End While
+                    con.Close()
+
+
+
                     If existencia = 0 Then                                  ''valida las existencias 
 
                         MessageBox.Show("El Producto no tiene existencias ", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -265,7 +370,7 @@ Public Class PuntoDeVenta
 
                         If Val(cantidad) > existencia Then              ''Revisa si la cantidad solicitada no es mayor a la existencia del producto
 
-                            MessageBox.Show("El Producto no tiene suficiente existencias ", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            MessageBox.Show("El Producto no tiene suficientes existencias ", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                         Else
 
@@ -275,12 +380,23 @@ Public Class PuntoDeVenta
 
                             Else                            ''Si cumple todo agregara la cantidad solicitada
 
-                                sql = "update dbo.preventas set cantidad = '" & cantidad & "',Total = '" & (cantidad * precio) & "' where codigo_producto = '" + codart + "'"
-                                Ejecutar(sql)
+                                If tipoArticulo = "GRANEL" Then
 
-                                con.Close()
+                                    sql = "update dbo.preventas set cantidad = '" & cantidad & "',Total = '" & (cantidad * precio) / 1000 & "' where codigo_producto = '" + codart + "'"
+                                    Ejecutar(sql)
 
-                                LlenarGrid()
+                                    con.Close()
+
+                                    LlenarGrid()
+
+                                Else
+                                    sql = "update dbo.preventas set cantidad = '" & cantidad & "',Total = '" & (cantidad * precio) & "' where codigo_producto = '" + codart + "'"
+                                    Ejecutar(sql)
+
+                                    con.Close()
+
+                                    LlenarGrid()
+                                End If
 
                             End If
 
@@ -297,9 +413,6 @@ Public Class PuntoDeVenta
         End Try
 
         Operacion()
-
-
-
 
     End Sub
 
@@ -385,7 +498,7 @@ Public Class PuntoDeVenta
         Else
             ELiminaCantidad(codart)
             TextBox1.Select()
-
+            codart = ""
         End If
 
     End Sub
@@ -456,8 +569,6 @@ Public Class PuntoDeVenta
 
         Reportes.MdiParent = Principal
         Reportes.Show()
-
-
 
     End Sub
 End Class

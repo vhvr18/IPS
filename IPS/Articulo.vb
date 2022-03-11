@@ -551,7 +551,7 @@ Public Class Articulo
         TextBox8.Enabled = True
         TextBox9.Enabled = True
         TextBox10.Enabled = True
-        TextBox11.Enabled = True
+        TextBox11.Enabled = False
 
         TextBox1.Select()
 
@@ -660,5 +660,16 @@ Public Class Articulo
 
     End Sub
 
+    Private Sub TextBox9_TextChanged(sender As Object, e As EventArgs) Handles TextBox9.TextChanged
 
+
+        If TextBox9.Text = "" Then
+            TextBox10.Text = 0
+        Else
+            TextBox10.Text = Val(TextBox9.Text) * 1.3
+
+        End If
+
+
+    End Sub
 End Class
