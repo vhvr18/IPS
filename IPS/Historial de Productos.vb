@@ -50,7 +50,7 @@ Public Class Historial_de_Productos
 
             If TextBox1.Text = "" Then
 
-                MessageBox.Show("Debes ingresar un Codigo de Barras", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.None)
+                MessageBox.Show("Debes ingresar un Codigo de Barras", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.None)
                 TextBox1.Select()
 
 

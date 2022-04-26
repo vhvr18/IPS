@@ -128,11 +128,11 @@ Public Class Principal
             sql = "update registros set minutos_laborados = '" & horamin & "' where usuario = '" + usuario + "' and  DatePart(yy,salida) = '" & año & "' and DATEPART(mm,salida) = '" & mes & "' and datepart (dd,salida) = '" & dia & "'"
             Ejecutar(sql)
 
-            MessageBox.Show("Has trabajado un total de " & horatotal & " horas con " & horamin & " minutos", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.None)
+            MessageBox.Show("Has trabajado un total de " & horatotal & " horas con " & horamin & " minutos", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.None)
 
         Else
 
-            MessageBox.Show("Solo mensaje: Has trabajado un total de " & horatotal & " horas con " & horamin & " minutos", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.None)
+            MessageBox.Show("Solo mensaje: Has trabajado un total de " & horatotal & " horas con " & horamin & " minutos", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.None)
 
 
         End If
@@ -225,7 +225,7 @@ Public Class Principal
                     Ejecutar(sql)
 
 
-                    MessageBox.Show("El usuario " + nombre + " " + apellidop + " realizo un registro de entrada" + vbLf + "[" + fechaEntradaHora + "]", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    MessageBox.Show("El usuario " + nombre + " " + apellidop + " realizo un registro de entrada" + vbLf + "[" + fechaEntradaHora + "]", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                     CorreoIN(nombre, fechaEntradaHora)
 
@@ -256,7 +256,7 @@ Public Class Principal
 
                         fechaSalidaHora = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
 
-                        MessageBox.Show("El usuario " + nombre + " " + apellidop + " realizo un registro de salida" + vbLf + "[" + fechaSalidaHora + "]", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        MessageBox.Show("El usuario " + nombre + " " + apellidop + " realizo un registro de salida" + vbLf + "[" + fechaSalidaHora + "]", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                         TiempoTrabajado(usuario)
 
@@ -270,7 +270,7 @@ Public Class Principal
                         Ejecutar(sql)
 
 
-                        MessageBox.Show("El usuario " + nombre + " " + apellidop + " realizo un registro de salida" + vbLf + "[" + fechaSalidaHora + "]", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        MessageBox.Show("El usuario " + nombre + " " + apellidop + " realizo un registro de salida" + vbLf + "[" + fechaSalidaHora + "]", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                         TiempoTrabajado(usuario)
 
@@ -284,7 +284,7 @@ Public Class Principal
 
             Else
 
-                MessageBox.Show("Contraseña incorrecta", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("Contraseña incorrecta", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
             End If
 
@@ -582,6 +582,7 @@ Public Class Principal
     End Sub
 
     Private Sub ValorTotalToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ValorTotalToolStripMenuItem.Click
+
         ValorTotal.MdiParent = Me
         ValorTotal.Show()
 
@@ -593,8 +594,9 @@ Public Class Principal
     End Sub
 
     Private Sub ModificarCostoYPrecioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ModificarCostoYPrecioToolStripMenuItem.Click
-        Actualizar_Costos_y_Precios.MdiParent = Me
 
+        Actualizar_Costos_y_Precios.MdiParent = Me
         Actualizar_Costos_y_Precios.Show()
+
     End Sub
 End Class

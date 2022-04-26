@@ -242,11 +242,11 @@ Public Class Salidas_Articulos
             ElseIf codigo = "algo" Then
 
                 TextBox1.Select()
-                MessageBox.Show("Debes ingresar un código de Barra", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("Debes ingresar un código de Barra", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
             Else
 
-                MessageBox.Show("Este producto no ha sido dado de alta", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("Este producto no ha sido dado de alta", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
                 TextBox1.Text = ""
 
@@ -298,17 +298,17 @@ Public Class Salidas_Articulos
 
         If TextBox7.Text = "" Or TextBox7.Text = "0" Then
 
-            MessageBox.Show("No hay nada por retirar", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("No hay nada por retirar", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
         ElseIf Val(TextBox7.Text) > Val(TextBox4.Text) Then
 
-            MessageBox.Show("No Puedes retirar mas piezas de las que existen", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("No Puedes retirar mas piezas de las que existen", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
             TextBox7.Text = ""
 
         ElseIf codigo_producto = codigo_producto2 Then
 
-            confirmacion = MsgBox("Seguro que deseas retirar estos articulos", vbOKCancel, "Integrated Pharmacy System")
+            confirmacion = MsgBox("¿Seguro que deseas retirar estos articulos?", vbOKCancel, "Integrated Sales System")
 
             If confirmacion = 1 Then
 
@@ -325,7 +325,8 @@ Public Class Salidas_Articulos
                 Ejecutar(sql)
                 con.Close()
 
-                MessageBox.Show("Se han retirado los articulos de manera exitosa", "Integrated Pharmacy System")
+                MessageBox.Show("Se han retirado los articulos de manera exitosa", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
 
                 TextBox1.Enabled = True
                 TextBox1.Text = ""

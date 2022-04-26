@@ -140,7 +140,7 @@ Public Class Venta
 
         If compraNegada = "No" Then
 
-            MessageBox.Show("El monto debe ser mayor al total.", "Integrated Pharmacy System")
+            MessageBox.Show("El monto debe ser mayor al total.", "Integrated Sales System")
 
             TextBox5.Text = ""
             TextBox5.Select()
@@ -163,7 +163,7 @@ Public Class Venta
             con.Close()
 
 
-            resp = MsgBox("¿Desea imprimir el ticket? ", vbOKCancel, "Integrated Pharmacy System")  ''Codigo que confirma la eliminacion de un usuario
+            resp = MsgBox("¿Desea imprimir el ticket? ", vbOKCancel, "Integrated Sales System")  ''Codigo que confirma la eliminacion de un usuario
 
             If resp = 1 Then
 
@@ -189,7 +189,7 @@ Public Class Venta
         Dim resp As Integer
 
 
-        resp = MsgBox("¿Ya realizaste el cobro al cliente? ", vbOKCancel, "Integrated Pharmacy System")  ''Codigo que confirma la eliminacion de un usuario
+        resp = MsgBox("¿Ya realizaste el cobro al cliente? ", vbOKCancel, "Integrated Sales System")  ''Codigo que confirma la eliminacion de un usuario
 
         If resp = 1 Then
 
@@ -370,8 +370,6 @@ Public Class Venta
             TextBox6.Text = ""
             TextBox5.Select()
 
-
-
         End If
 
         If ComboBox2.SelectedIndex = 1 Then
@@ -460,7 +458,7 @@ Public Class Venta
 
         If e.KeyCode = Keys.Enter Then
 
-            resp = MsgBox("¿Ya realizaste el cobro al cliente? ", vbOKCancel, "Integrated Pharmacy System")  ''Codigo que confirma la eliminacion de un usuario
+            resp = MsgBox("¿Ya realizaste el cobro al cliente? ", vbOKCancel, "Integrated Sales System")  ''Codigo que confirma la eliminacion de un usuario
 
             If resp = 1 Then
 

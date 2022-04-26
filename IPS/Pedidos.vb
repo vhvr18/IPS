@@ -113,7 +113,7 @@ Public Class Pedidos
 
         If TextBox1.Text = "" Then                 ''if por si el usuario no ingreso nada 
 
-            MessageBox.Show("Debes ingresar a partir de cuantas existencias " + vbLf + "quieres generar el pedido.", "Integrated Pharmacy System", MessageBoxButtons.OK)
+            MessageBox.Show("Debes ingresar a partir de cuantas existencias " + vbLf + "quieres generar el pedido.", "Integrated Sales System", MessageBoxButtons.OK)
             TextBox1.Text = ""
             TextBox1.Select()
 
@@ -155,7 +155,7 @@ Public Class Pedidos
 
     Private Sub Pedidos_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
 
-        MessageBox.Show("Este es un pedido recomendado por el sistema." + vbLf + "Tomando en cuenta productos con menos de 3 existencias.", "Integrated Pharmacy System", MessageBoxButtons.OK)
+        MessageBox.Show("Este es un pedido recomendado por el sistema." + vbLf + "Tomando en cuenta productos con menos de 3 existencias.", "Integrated Sales System", MessageBoxButtons.OK)
 
     End Sub
 

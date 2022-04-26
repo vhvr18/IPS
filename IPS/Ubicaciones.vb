@@ -490,6 +490,7 @@ Public Class Ubicaciones
 
 
         ComboBox5.Text = Nothing
+        TextBox1.Select()
 
     End Sub
 

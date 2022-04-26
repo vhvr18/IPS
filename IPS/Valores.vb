@@ -204,7 +204,7 @@ Public Class Valores
 
             If TextBox1.Text = "" Then     ''Validacion por si no hay nombre del proveedor
 
-                MessageBox.Show("Debes ingresar el nombre del proveedor.", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("Debes ingresar el nombre del proveedor.", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
             Else
 
@@ -239,7 +239,7 @@ Public Class Valores
                 Ejecutar(sql)
                 con.Close()
 
-                MessageBox.Show("Registro editado con éxito", "Integrated Pharmacy System", MessageBoxButtons.OK)
+                MessageBox.Show("Registro editado con éxito", "Integrated Sales System", MessageBoxButtons.OK)
 
                 TextBox1.Text = ""
                 TextBox2.Text = ""
@@ -259,7 +259,7 @@ Public Class Valores
 
             If TextBox1.Text = "" Then          ''Validacion por si no hay nombre de proveedor 
 
-                MessageBox.Show("Debes ingresar el nombre del proveedor.", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("Debes ingresar el nombre del proveedor.", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
             Else
                 ''if por si el usuario no ingresa algun dato el sistema le pone 0
@@ -292,7 +292,7 @@ Public Class Valores
                 Ejecutar(sql)
                 con.Close()
 
-                MessageBox.Show("Registro guardado con éxito", "Integrated Pharmacy System", MessageBoxButtons.OK)
+                MessageBox.Show("Registro guardado con éxito", "Integrated Sales System", MessageBoxButtons.OK)
 
                 TextBox1.Text = ""
                 TextBox2.Text = ""
@@ -322,7 +322,7 @@ Public Class Valores
             Ejecutar(sql)
             con.Close()
 
-            MessageBox.Show("Proveedor eliminado con éxito.", "Integrated Pharmacy System", MessageBoxButtons.OK)
+            MessageBox.Show("Proveedor eliminado con éxito.", "Integrated Sales System", MessageBoxButtons.OK)
 
             TextBox1.Text = ""
             TextBox2.Text = ""
@@ -337,7 +337,7 @@ Public Class Valores
 
         Else
 
-            MessageBox.Show("Debes seleccionar un proveedor para eliminar.", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Debes seleccionar un proveedor para eliminar.", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
         End If
 
@@ -671,7 +671,7 @@ Public Class Valores
 
         If TextBox10.Text = "" Then             '' if por si no ingreso nada al textbox 
 
-            MessageBox.Show("Debes ingresar una categoria.", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Debes ingresar una categoria.", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
             TextBox10.Select()
 
         Else
@@ -692,7 +692,7 @@ Public Class Valores
 
             If existe <> "" Then       ''if por si lo que ingreso ya existe 
 
-                MessageBox.Show("La categoria ya existe.", "Integrated Pharmacy System", MessageBoxButtons.OK)
+                MessageBox.Show("La categoria ya existe.", "Integrated Sales System", MessageBoxButtons.OK)
                 TextBox10.Select()
 
             Else
@@ -700,7 +700,7 @@ Public Class Valores
                 sql = "Insert into Categorias values('" + categoria + "')"
                 Ejecutar(sql)
 
-                MessageBox.Show("Categoria guardada con éxito .", "Integrated Pharmacy System", MessageBoxButtons.OK)
+                MessageBox.Show("Categoria guardada con éxito .", "Integrated Sales System", MessageBoxButtons.OK)
 
                 TextBox10.Text = ""
                 MostrasListas()
@@ -718,7 +718,7 @@ Public Class Valores
 
         If TextBox10.Text = "" Then
 
-            MessageBox.Show("Debes seleccionar una categoria .", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Debes seleccionar una categoria .", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
             TextBox10.Select()
 
         Else
@@ -727,7 +727,7 @@ Public Class Valores
             Ejecutar(sql)
             con.Close()
 
-            MessageBox.Show("Categoria eliminada con éxito .", "Integrated Pharmacy System", MessageBoxButtons.OK)
+            MessageBox.Show("Categoria eliminada con éxito .", "Integrated Sales System", MessageBoxButtons.OK)
 
             TextBox10.Text = ""
             MostrasListas()
@@ -757,7 +757,7 @@ Public Class Valores
 
         If TextBox6.Text = "" Then             '' if por si no ingreso nada al textbox 
 
-            MessageBox.Show("Debes Ingresar una Unidad de Medición.", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Debes Ingresar una Unidad de Medición.", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
             TextBox6.Select()
 
         Else
@@ -778,7 +778,7 @@ Public Class Valores
 
             If existe <> "" Then       ''if por si lo que ingreso ya existe 
 
-                MessageBox.Show("La unidad ya existe.", "Integrated Pharmacy System", MessageBoxButtons.OK)
+                MessageBox.Show("La unidad ya existe.", "Integrated Sales System", MessageBoxButtons.OK)
                 TextBox6.Select()
 
             Else
@@ -787,7 +787,7 @@ Public Class Valores
                 Ejecutar(sql)
                 con.Close()
 
-                MessageBox.Show("Unidad guardada con éxito .", "Integrated Pharmacy System", MessageBoxButtons.OK)
+                MessageBox.Show("Unidad guardada con éxito .", "Integrated Sales System", MessageBoxButtons.OK)
 
                 TextBox6.Text = ""
                 MostrasListas()
@@ -805,7 +805,7 @@ Public Class Valores
 
         If TextBox6.Text = "" Then
 
-            MessageBox.Show("Debes seleccionar una unidad .", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Debes seleccionar una unidad .", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
             TextBox6.Select()
 
         Else
@@ -814,7 +814,7 @@ Public Class Valores
             Ejecutar(sql)
             con.Close()
 
-            MessageBox.Show("Unidad eliminada con éxito .", "Integrated Pharmacy System", MessageBoxButtons.OK)
+            MessageBox.Show("Unidad eliminada con éxito .", "Integrated Sales System", MessageBoxButtons.OK)
 
             TextBox6.Text = ""
             MostrasListas()
@@ -844,7 +844,7 @@ Public Class Valores
 
         If TextBox9.Text = "" Then             '' if por si no ingreso nada al textbox 
 
-            MessageBox.Show("Debes Ingresar un Fabricante/Marca.", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Debes Ingresar un Fabricante/Marca.", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
             TextBox9.Select()
 
         Else
@@ -865,7 +865,7 @@ Public Class Valores
 
             If existe <> "" Then       ''if por si lo que ingreso ya existe 
 
-                MessageBox.Show("El Fabricante o Marca ya existe.", "Integrated Pharmacy System", MessageBoxButtons.OK)
+                MessageBox.Show("El Fabricante o Marca ya existe.", "Integrated Sales System", MessageBoxButtons.OK)
                 TextBox9.Select()
 
             Else
@@ -873,7 +873,7 @@ Public Class Valores
                 sql = "Insert into Fabricantes values('" + marca + "')"
                 Ejecutar(sql)
 
-                MessageBox.Show("Fabricante guardado con éxito .", "Integrated Pharmacy System", MessageBoxButtons.OK)
+                MessageBox.Show("Fabricante guardado con éxito .", "Integrated Sales System", MessageBoxButtons.OK)
 
                 TextBox9.Text = ""
                 MostrasListas()
@@ -891,7 +891,7 @@ Public Class Valores
 
         If TextBox9.Text = "" Then
 
-            MessageBox.Show("Debes Seleccionar una Marca o Fabricante .", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Debes Seleccionar una Marca o Fabricante .", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
             TextBox9.Select()
 
         Else
@@ -900,7 +900,7 @@ Public Class Valores
             Ejecutar(sql)
             con.Close()
 
-            MessageBox.Show("Fabricante Eliminado con Éxito .", "Integrated Pharmacy System", MessageBoxButtons.OK)
+            MessageBox.Show("Fabricante Eliminado con Éxito .", "Integrated Sales System", MessageBoxButtons.OK)
 
             TextBox9.Text = ""
             MostrasListas()
@@ -930,7 +930,7 @@ Public Class Valores
 
         If TextBox8.Text = "" Then             '' if por si no ingreso nada al textbox 
 
-            MessageBox.Show("Debes Ingresar un Anaquel/Vitrina.", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Debes Ingresar un Anaquel/Vitrina.", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
             TextBox8.Select()
 
         Else
@@ -951,7 +951,7 @@ Public Class Valores
 
             If existe <> "" Then       ''if por si lo que ingreso ya existe 
 
-                MessageBox.Show("El Anaquel o Vitrina ya existe.", "Integrated Pharmacy System", MessageBoxButtons.OK)
+                MessageBox.Show("El Anaquel o Vitrina ya existe.", "Integrated Sales System", MessageBoxButtons.OK)
                 TextBox8.Select()
 
             Else
@@ -960,7 +960,7 @@ Public Class Valores
                 Ejecutar(sql)
                 con.Close()
 
-                MessageBox.Show("Anaquel/Vitrina Guardado con Éxito .", "Integrated Pharmacy System", MessageBoxButtons.OK)
+                MessageBox.Show("Anaquel/Vitrina Guardado con Éxito .", "Integrated Sales System", MessageBoxButtons.OK)
 
                 TextBox8.Text = ""
                 MostrasListas()
@@ -978,7 +978,7 @@ Public Class Valores
 
         If TextBox8.Text = "" Then
 
-            MessageBox.Show("Debes Seleccionar un Anaquel/Vitrina .", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Debes Seleccionar un Anaquel/Vitrina .", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
             TextBox8.Select()
 
         Else
@@ -987,7 +987,7 @@ Public Class Valores
             Ejecutar(sql)
             con.Close()
 
-            MessageBox.Show("Anaquel/Vitrina Eliminado con Éxito .", "Integrated Pharmacy System", MessageBoxButtons.OK)
+            MessageBox.Show("Anaquel/Vitrina Eliminado con Éxito .", "Integrated Sales System", MessageBoxButtons.OK)
 
             TextBox8.Text = ""
             MostrasListas()
@@ -1017,7 +1017,7 @@ Public Class Valores
 
         If TextBox7.Text = "" Then             '' if por si no ingreso nada al textbox 
 
-            MessageBox.Show("Debes Ingresar un Nivel.", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Debes Ingresar un Nivel.", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
             TextBox7.Select()
 
         Else
@@ -1038,7 +1038,7 @@ Public Class Valores
 
             If existe <> "" Then       ''if por si lo que ingreso ya existe 
 
-                MessageBox.Show("El Nivel ya Existe.", "Integrated Pharmacy System", MessageBoxButtons.OK)
+                MessageBox.Show("El Nivel ya Existe.", "Integrated Sales System", MessageBoxButtons.OK)
                 TextBox7.Select()
 
             Else
@@ -1047,7 +1047,7 @@ Public Class Valores
                 Ejecutar(sql)
                 con.Close()
 
-                MessageBox.Show("Nivel Guardado con Éxito .", "Integrated Pharmacy System", MessageBoxButtons.OK)
+                MessageBox.Show("Nivel Guardado con Éxito .", "Integrated Sales System", MessageBoxButtons.OK)
 
                 TextBox7.Text = ""
                 MostrasListas()
@@ -1065,7 +1065,7 @@ Public Class Valores
 
         If TextBox7.Text = "" Then
 
-            MessageBox.Show("Debes Seleccionar un Nivel .", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Debes Seleccionar un Nivel .", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
             TextBox7.Select()
 
         Else
@@ -1074,7 +1074,7 @@ Public Class Valores
             Ejecutar(sql)
             con.Close()
 
-            MessageBox.Show("Nivel Eliminado con Éxito .", "Integrated Pharmacy System", MessageBoxButtons.OK)
+            MessageBox.Show("Nivel Eliminado con Éxito .", "Integrated Sales System", MessageBoxButtons.OK)
 
             TextBox7.Text = ""
             MostrasListas()
@@ -1104,7 +1104,7 @@ Public Class Valores
 
         If TextBox11.Text = "" Then             '' if por si no ingreso nada al textbox 
 
-            MessageBox.Show("Debes Ingresar un Tipo de Artículo.", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Debes Ingresar un Tipo de Artículo.", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
             TextBox11.Select()
 
         Else
@@ -1125,7 +1125,7 @@ Public Class Valores
 
             If existe <> "" Then       ''if por si lo que ingreso ya existe 
 
-                MessageBox.Show("El Tipo de Artículo ya Existe.", "Integrated Pharmacy System", MessageBoxButtons.OK)
+                MessageBox.Show("El Tipo de Artículo ya Existe.", "Integrated Sales System", MessageBoxButtons.OK)
                 TextBox11.Select()
 
             Else
@@ -1134,7 +1134,7 @@ Public Class Valores
                 Ejecutar(sql)
                 con.Close()
 
-                MessageBox.Show("Tipo de Artículo Guardado con Éxito .", "Integrated Pharmacy System", MessageBoxButtons.OK)
+                MessageBox.Show("Tipo de Artículo Guardado con Éxito .", "Integrated Sales System", MessageBoxButtons.OK)
 
                 TextBox11.Text = ""
                 MostrasListas()
@@ -1152,7 +1152,7 @@ Public Class Valores
 
         If TextBox11.Text = "" Then
 
-            MessageBox.Show("Debes Seleccionar un Tipo de Artículo .", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Debes Seleccionar un Tipo de Artículo .", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
             TextBox11.Select()
 
         Else
@@ -1161,7 +1161,7 @@ Public Class Valores
             Ejecutar(sql)
             con.Close()
 
-            MessageBox.Show("Tipo de Artículo Eliminado con Éxito .", "Integrated Pharmacy System", MessageBoxButtons.OK)
+            MessageBox.Show("Tipo de Artículo Eliminado con Éxito .", "Integrated Sales System", MessageBoxButtons.OK)
 
             TextBox11.Text = ""
             MostrasListas()

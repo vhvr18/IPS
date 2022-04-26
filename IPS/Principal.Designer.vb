@@ -330,7 +330,7 @@ Partial Class Principal
         Me.MinimumSize = New System.Drawing.Size(1200, 726)
         Me.Name = "Principal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Integrated Pharmacy System(2.0)"
+        Me.Text = "Integrated Sales System(2.0)"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()

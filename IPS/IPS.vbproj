@@ -134,6 +134,12 @@
     <Compile Include="Busqueda de Articulo.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="CantidadProductoGranel.Designer.vb">
+      <DependentUpon>CantidadProductoGranel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CantidadProductoGranel.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Check.Designer.vb">
       <DependentUpon>Check.vb</DependentUpon>
     </Compile>
@@ -287,6 +293,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Busqueda de Articulo.resx">
       <DependentUpon>Busqueda de Articulo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CantidadProductoGranel.resx">
+      <DependentUpon>CantidadProductoGranel.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Check.resx">
       <DependentUpon>Check.vb</DependentUpon>

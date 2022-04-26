@@ -375,21 +375,21 @@ Public Class Reportes
 
         If fecha > Fecha2 Then      ''Indica que la fecha1 debe ser menor a la fecha2 
 
-            MessageBox.Show("La primer fecha debe ser menor a la segunda ", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("La primer fecha debe ser menor a la segunda ", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
         Else
 
             If ComboBox1.Text = "" Then  ''Indica que debe seleccionar algo en el combo box
 
 
-                MessageBox.Show("Necesitas seleccionar un usuario ", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("Necesitas seleccionar un usuario ", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
 
             Else
 
                 If CheckBox1.Checked = False And CheckBox2.Checked = False Then     ''Indica que debe seleccionar un metodo de busqueda
 
-                    MessageBox.Show("Necesitas seleccionar un tipo de búsqueda ", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBox.Show("Necesitas seleccionar un tipo de búsqueda ", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
                 Else
 
@@ -624,12 +624,6 @@ Public Class Reportes
             CheckBox1.Checked = False
 
         End If
-
-    End Sub
-
-    Private Sub Button2_Click(sender As Object, e As EventArgs)
-
-
 
     End Sub
 

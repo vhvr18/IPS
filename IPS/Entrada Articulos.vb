@@ -282,11 +282,11 @@ Public Class Entrada_Articulos
             ElseIf codigo = "algo" Then
 
                 TextBox1.Select()
-                MessageBox.Show("Debes ingresar un código de barra", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("Debes ingresar un código de barra", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
             Else
 
-                MessageBox.Show("Este producto no ha sido dado de alta", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("Este producto no ha sido dado de alta", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
                 TextBox1.Text = ""
 
@@ -370,11 +370,11 @@ Public Class Entrada_Articulos
         If TextBox1.Text = "" And TextBox2.Text = "" Then
 
             'Comparación para verificar que todos los datos sean correctos y no queden campos vacios
-            MessageBox.Show("Debes ingresar un producto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Debes ingresar un producto", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
         ElseIf Val(TextBox10.Text) < Val(TextBox9.Text) Then
 
-            MessageBox.Show("El precio del producto no puede ser menor que el costo", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("El precio del producto no puede ser menor que el costo", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
             TextBox9.Text = "0"
             TextBox10.Text = "0"
@@ -384,7 +384,7 @@ Public Class Entrada_Articulos
 
         ElseIf codigo_producto = codigo_producto2 Then
 
-            confirmacion = MsgBox("Seguro que deseas ingresar este producto", vbOKCancel, "Integrated Pharmacy System")
+            confirmacion = MsgBox("Seguro que deseas ingresar este producto", vbOKCancel, "Integrated Sales System")
 
             If confirmacion = 1 Then
 
@@ -427,7 +427,7 @@ Public Class Entrada_Articulos
                 Ejecutar(sql)
                 con.Close()
 
-                MessageBox.Show("Producto ingresado", "Integrated Pharmacy System")
+                MessageBox.Show("Producto ingresado", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                 Llenar_grids()
 
@@ -496,10 +496,6 @@ Public Class Entrada_Articulos
 
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
         LlenarExcel()
-
-    End Sub
-
-    Private Sub TextBox11_TextChanged(sender As Object, e As EventArgs) Handles TextBox11.TextChanged
 
     End Sub
 

@@ -444,7 +444,7 @@ Partial Class Entrada_Articulos
         '
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"COMPRA", "TRANSFERENCIA DE SUCURSAL", "DEVOLUCIÓN"})
+        Me.ComboBox1.Items.AddRange(New Object() {"COMPRA", "TRANSFERENCIA DE SUCURSAL", "DEVOLUCIÓN", "PAQUETE A SUELTO"})
         Me.ComboBox1.Location = New System.Drawing.Point(217, 35)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(193, 21)

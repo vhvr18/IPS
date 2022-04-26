@@ -82,7 +82,7 @@ Public Class PuntoDeVenta
         Dim precio As Double     ''Variable para llevar el control del total en la tabla preventas
 
         Dim tipoProducto As String = ""             ''Variable con la que verificare el tipo de articulo (Granel,fisico, virtual)
-        Dim pesajeProducto As Integer = 0           ''Variable para obtener el precio por kilo 
+        Dim pesajeProducto As String = ""          ''Variable para obtener el precio por kilo 
 
 
         Format(precio, "00.00")
@@ -135,7 +135,7 @@ Public Class PuntoDeVenta
 
         If existe = "" Then
 
-            MessageBox.Show("Este producto no esta dado de alta", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.None)
+            MessageBox.Show("Este producto no esta dado de alta", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.None)
 
         Else
 
@@ -145,33 +145,43 @@ Public Class PuntoDeVenta
 
                     If existencia > 0 Then                  ''Se ingresa por primera vez en el grid
 
-                        pesajeProducto = InputBox("Agrega el peso del producto", "Integrated Pharmacy System")
+                        pesajeProducto = InputBox("Agrega el peso del producto", "Integrated Sales System")
 
-                        If pesajeProducto > existencia Then
+                        '''''''''' Si cancela no pasa nada
 
-                            MessageBox.Show("No hay producto suficiente ", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.None)
+                        If pesajeProducto = "" Then                                   ''Si cancela la operacion no pasara nada 
 
-                        Else
+                        Else                                                           ''De lo contrario buscara el producto y vera si hay existencias 
+                            CantidadProductoGranel.Show()
 
-                            sql = "Exec sp_InsVentaXGramos '" + producto + "'," & pesajeProducto & ""
-                            Ejecutar(sql)
-                            con.Close()
+                            If Val(pesajeProducto) > existencia Then
 
-                            LlenarGrid()
+                                MessageBox.Show("No hay producto suficiente ", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.None)
 
-                            cont = cant
-                            producto = ""
+                            Else
+
+                                sql = "Exec sp_InsVentaXGramos '" + producto + "'," & Val(pesajeProducto) & ""
+                                Ejecutar(sql)
+                                con.Close()
+
+                                LlenarGrid()
+
+                                cont = cant
+                                producto = ""
+
+                            End If
 
                         End If
 
+
                     Else
 
-                        MessageBox.Show("El producto no tiene existencias.", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.None)
+                        MessageBox.Show("El producto no tiene existencias.", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.None)
 
                     End If
                 Else
 
-                    MessageBox.Show("Ya agregaste este producto al carrito, para agregar una cantidad diferente. Selecciona el producto y presiona el boton agregar cantidad", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.None)
+                    MessageBox.Show("Ya agregaste este producto al carrito, para agregar una cantidad diferente. Selecciona el producto y presiona el boton agregar cantidad", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.None)
 
                 End If
 
@@ -192,7 +202,7 @@ Public Class PuntoDeVenta
 
                     Else
 
-                        MessageBox.Show("El producto no tiene existencias.", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.None)
+                        MessageBox.Show("El producto no tiene existencias.", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.None)
 
 
                     End If
@@ -200,7 +210,7 @@ Public Class PuntoDeVenta
 
                     If cant >= existencia Then
 
-                        MessageBox.Show("No hay producto suficiente ", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.None)
+                        MessageBox.Show("No hay producto suficiente ", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.None)
 
                     Else
 
@@ -322,11 +332,11 @@ Public Class PuntoDeVenta
 
             If codart = "" Then                     ''Codigo que valida si ya selecciono un producto en el grid 
 
-                MessageBox.Show("Debes seleccionar un producto ", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("Debes seleccionar un producto ", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
             Else                                       ''Si lo selecciono arrojara un inputbox
 
-                cantidad = InputBox("Agrega la cantidad deseada", "Integrated Pharmacy System")
+                cantidad = InputBox("Agrega la cantidad deseada", "Integrated Sales System")
 
 
                 If cantidad = "" Then                                   ''Si cancela la operacion no pasara nada 
@@ -364,19 +374,19 @@ Public Class PuntoDeVenta
 
                     If existencia = 0 Then                                  ''valida las existencias 
 
-                        MessageBox.Show("El Producto no tiene existencias ", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        MessageBox.Show("El Producto no tiene existencias ", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                     Else
 
                         If Val(cantidad) > existencia Then              ''Revisa si la cantidad solicitada no es mayor a la existencia del producto
 
-                            MessageBox.Show("El Producto no tiene suficientes existencias ", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            MessageBox.Show("El Producto no tiene suficientes existencias ", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                         Else
 
                             If cantidad = 0 Then                    ''Si el usuario mete un 0 le mandara un mensaje de que no puede hacerlo 
 
-                                MessageBox.Show("Debes ingresar una cantidad mayor a 0 ", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                MessageBox.Show("Debes ingresar una cantidad mayor a 0 ", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
                             Else                            ''Si cumple todo agregara la cantidad solicitada
 
@@ -409,7 +419,7 @@ Public Class PuntoDeVenta
             End If
 
         Catch ex As Exception
-            MessageBox.Show("Debes ingresar la cantidad con números ", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Debes ingresar la cantidad con números ", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
         Operacion()
@@ -439,7 +449,7 @@ Public Class PuntoDeVenta
 
         Dim resp As Integer
 
-        resp = MsgBox("¿Seguro que desea salir del Punto de Venta? ", vbOKCancel, "Integrated Pharmacy System")  ''Codigo que confirma la eliminacion de un usuario
+        resp = MsgBox("¿Seguro que desea salir del Punto de Venta? ", vbOKCancel, "Integrated Sales System")  ''Codigo que confirma la eliminacion de un usuario
 
         If resp = 1 Then
 
@@ -492,7 +502,7 @@ Public Class PuntoDeVenta
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
         If codart = "" Then
-            MessageBox.Show("Debes seleccionar un producto ", "Integrated Pharmacy System", MessageBoxButtons.OK)
+            MessageBox.Show("Debes seleccionar un producto ", "Integrated Sales System", MessageBoxButtons.OK)
             TextBox1.Select()
 
         Else

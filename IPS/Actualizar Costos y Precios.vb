@@ -129,7 +129,7 @@ Public Class Actualizar_Costos_y_Precios
 
         If Val(TextBox2.Text) = 0 Or Val(TextBox5.Text) = 0 Then                  ''Validamos que hayamos puesto el precio y costo
 
-            MessageBox.Show("No puedes dejar el precio o costo en 0", "Integrated Pharmacy System")
+            MessageBox.Show("No puedes dejar el precio o costo en 0", "Integrated Sales System")
             TextBox2.Text = ""
             TextBox2.Select()
 
@@ -148,7 +148,7 @@ Public Class Actualizar_Costos_y_Precios
 
             Else
 
-                MessageBox.Show("El precio debe ser mayor o igual al costo", "Integrated Pharmacy System")
+                MessageBox.Show("El precio debe ser mayor o igual al costo", "Integrated Sales System")
                 TextBox2.Text = ""
                 TextBox2.Select()
 
@@ -272,7 +272,7 @@ Public Class Actualizar_Costos_y_Precios
 
             If TextBox1.Text = "" Then
 
-                MessageBox.Show("Debes ingresar un codgio de barra o seleccionarlo de la lista ", "Integrated Pharmacy System")
+                MessageBox.Show("Debes ingresar un codgio de barra o seleccionarlo de la lista ", "Integrated Sales System")
 
 
             Else

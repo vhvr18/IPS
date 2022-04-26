@@ -22,7 +22,7 @@ Public Class Login
 
         If TextBox1.Text = "" And TextBox2.Text = "" Or TextBox1.Text = "" Or TextBox2.Text = "" Then
 
-            MessageBox.Show("Ingresa lo datos solicitados", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Ingresa lo datos solicitados", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
             TextBox1.Select()
 
             intento = intento + 1
@@ -53,7 +53,7 @@ Public Class Login
                 Principal.Show()
             Else
 
-                MessageBox.Show("Contraseña Incorrecta", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("Contraseña Incorrecta", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 TextBox1.Text = ""
                 TextBox2.Text = ""
                 TextBox1.Select()
@@ -67,7 +67,7 @@ Public Class Login
 
         If intento = 3 Then
 
-            MessageBox.Show("Lo sentimos excediste el número de intentos", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Lo sentimos excediste el número de intentos", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Me.Close()
 
         End If

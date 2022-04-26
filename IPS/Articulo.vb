@@ -252,7 +252,7 @@ Public Class Articulo
         If TextBox1.Text = "" Or TextBox2.Text = "" Or ComboBox1.Text = "[-seleccionar-]" Or ComboBox2.Text = "[-seleccionar-]" Or ComboBox3.Text = "[-seleccionar-]" Or TextBox3.Text = "" Or ComboBox4.Text = "[-seleccionar-]" Or ComboBox5.Text = "[-seleccionar-]" Or TextBox4.Text = "" Or DateTimePicker1.Text = "" Or TextBox6.Text = "" Or TextBox7.Text = "" Or TextBox8.Text = "" Or TextBox9.Text = "" Or TextBox10.Text = "" Or TextBox11.Text = "" Or TextBox12.Text = "" Or ComboBox6.Text = "[-seleccionar-]" Or ComboBox7.Text = "[-seleccionar-]" Then
 
             'Comparación para verificar que todos los datos sean correctos y no queden campos vacios
-            MessageBox.Show("Asegúrese de haber ingresado todos los datos", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Asegúrese de haber ingresado todos los datos", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
             TextBox1.Select()
 
         Else
@@ -260,7 +260,7 @@ Public Class Articulo
 
             If Val(TextBox10.Text) < Val(TextBox9.Text) Then
 
-                MessageBox.Show("El costo no puede ser mayor al precio" + vbLf + " Por favor verifiquelo", "Integrated Pharmacy System")
+                MessageBox.Show("El costo no puede ser mayor al precio" + vbLf + " Por favor verifiquelo", "Integrated Sales System")
 
                 TextBox9.Text = ""
                 TextBox10.Text = ""
@@ -274,7 +274,7 @@ Public Class Articulo
 
                     'Compara si existe el dato para modificar los datos y actualizar
 
-                    confirmacion = MsgBox("¿Seguro que desea guardar los cambios realizados a este articulo?", vbOKCancel, "Integrated Pharmacy System")
+                    confirmacion = MsgBox("¿Seguro que desea guardar los cambios realizados a este articulo?", vbOKCancel, "Integrated Sales System")
 
                     If confirmacion = 1 Then
 
@@ -284,7 +284,7 @@ Public Class Articulo
                         sql = "exec pd_actualizar_ubicacion '" + codigo_producto + "','" + TextBox2.Text + "','" + sucursal + "','" + anaquel + "','" + nivel + "'"
                         Ejecutar(sql)
 
-                        MessageBox.Show("Los cambios realizados han sido guardados de manera exitosa", "Integrated Pharmacy System")
+                        MessageBox.Show("Los cambios realizados han sido guardados de manera exitosa", "Integrated Sales System")
 
                         TextBox1.Text = ""
                         TextBox2.Text = ""
@@ -325,7 +325,7 @@ Public Class Articulo
 
                     'Si todos los campos estan llenos guarda los datos atraves de los procedimientos almacenados
 
-                    confirmacion = MsgBox("¿Seguro que desea dar de alta este articulo?", vbOKCancel, "Integrated Pharmacy System")
+                    confirmacion = MsgBox("¿Seguro que desea dar de alta este articulo?", vbOKCancel, "Integrated Sales System")
 
                     If confirmacion = 1 Then
 
@@ -338,7 +338,7 @@ Public Class Articulo
                         sql = "exec pd_ubicacion '" + codigo_producto + "','" + TextBox2.Text + "','" + sucursal + "','" + anaquel + "','" + nivel + "'"
                         Ejecutar(sql)
 
-                        MessageBox.Show("Se ha dado de alta al articulo exitosamente", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        MessageBox.Show("Se ha dado de alta al articulo exitosamente", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                         TextBox1.Text = ""
                         TextBox2.Text = ""
@@ -564,13 +564,13 @@ Public Class Articulo
 
         If TextBox1.Text = "" Then
 
-            MessageBox.Show("Ingresa el código de barras del producto a eliminar", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Ingresa el código de barras del producto a eliminar", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
             TextBox1.Select()
 
 
         Else
 
-            confirmacion = MsgBox("Seguro que desea eliminar este articulo", vbOKCancel, "Integrated Pharmacy System")
+            confirmacion = MsgBox("Seguro que desea eliminar este articulo", vbOKCancel, "Integrated Sales System")
 
             If confirmacion = 1 Then
 
@@ -583,7 +583,7 @@ Public Class Articulo
                 sql = "Delete ubicacion where Codigo_Producto ='" + TextBox1.Text + "'"
                 Ejecutar(sql)
 
-                MessageBox.Show("Articulo eliminado con éxito", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("Articulo eliminado con éxito", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                 TextBox1.Text = ""
                 TextBox2.Text = ""

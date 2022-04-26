@@ -81,8 +81,6 @@ Public Class Inventarios
 
         End Try
 
-
-
     End Sub
 
     Private Sub Inventarios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -100,12 +98,6 @@ Public Class Inventarios
         da.Fill(dx)
         DataGridView1.DataSource = dx
         con.Close()
-
-
-
-    End Sub
-
-    Private Sub Label1_Click(sender As Object, e As EventArgs)
 
     End Sub
 

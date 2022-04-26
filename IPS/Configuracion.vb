@@ -32,14 +32,14 @@ Public Class Configuracion
 
         If TextBox1.Text = "" Or TextBox2.Text = "" Or TextBox3.Text = "" Or TextBox4.Text = "" Or TextBox5.Text = "" Then
 
-            MessageBox.Show("Debes completar la información para ser guardada.", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Debes completar la información para ser guardada.", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
         Else
 
             sql = "Update dbo.Sucursales set Nombre = '" + TextBox2.Text + "',Direccion = '" + TextBox3.Text + "', Telefono = '" & TextBox4.Text & "', Correo_Electronico= '" + TextBox5.Text + "' where Id_Sucursal = '" & TextBox1.Text & "'"
             Ejecutar(sql)
 
-            MessageBox.Show("Información editada.", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.None)
+            MessageBox.Show("Información editada.", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.None)
 
             TextBox2.Enabled = False
             TextBox3.Enabled = False

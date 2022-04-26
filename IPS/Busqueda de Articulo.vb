@@ -29,7 +29,7 @@ Public Class Busqueda_de_Articulo
 
         If objeto = "" Then                 ''if por si el usuario no ingreso nada 
 
-            MessageBox.Show("Debes ingresar un código de barras o descripción de producto ", "Integrated Pharmacy System", MessageBoxButtons.OK)
+            MessageBox.Show("Debes ingresar un código de barras o descripción de producto ", "Integrated Sales System", MessageBoxButtons.OK)
             TextBox1.Select()
 
         Else
@@ -186,7 +186,7 @@ Public Class Busqueda_de_Articulo
 
         If codart = "" Then
 
-            MessageBox.Show("Debes seleccionar un producto ", "Integrated Pharmacy System", MessageBoxButtons.OK)
+            MessageBox.Show("Debes seleccionar un producto ", "Integrated Sales System", MessageBoxButtons.OK)
 
         Else
 

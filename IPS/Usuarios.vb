@@ -116,7 +116,7 @@ Public Class Usuarios
 
         If TextBox1.Text = "" Then
 
-            MessageBox.Show("Por Favor Selecciona Primero un Usuario", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Por Favor Selecciona Primero un Usuario", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
         Else
 
@@ -209,12 +209,12 @@ Public Class Usuarios
         If TextBox1.Text = "" Or TextBox2.Text = "" Or TextBox3.Text = "" Or TextBox6.Text = "" Or TextBox5.Text = "" Or TextBox4.Text = "" Or TextBox7.Text = "" Or ComboBox1.Text = "[-seleccionar-]" Or ComboBox2.Text = "[-seleccionar-]" Then
             'comparación para verificar que todos los datos sean correctos
 
-            MessageBox.Show("Ingrese todos los datos", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Ingrese todos los datos", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
 
         ElseIf contraseña <> contraseña2 Then ' que se verifique la contraseña
 
-            MessageBox.Show("Verificar la contraseña", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Verificar la contraseña", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
 
         ElseIf usuario = usuario2 Then 'compara si el usuario a fue ingresado y si esta lo actualiza
@@ -222,7 +222,7 @@ Public Class Usuarios
             sql = "exec pd_actualizar '" + nombre + "','" + apellidop + "','" + apellidom + "','" + usuario + "','" + contraseña + "','" + pregunta + "','" + respuesta + "','" + nivel + "'"
             Ejecutar(sql)
 
-            MessageBox.Show("Cambios guardados", "Integrated Pharmacy System")
+            MessageBox.Show("Cambios guardados", "Integrated Sales System")
             ListBox1.Items.Clear()
             RellenarList()
 
@@ -246,7 +246,7 @@ Public Class Usuarios
             sql = "exec pd_insertar '" + nombre + "','" + apellidop + "','" + apellidom + "','" + usuario + "','" + contraseña + "','" + pregunta + "','" + respuesta + "','" + nivel + "'"
             Ejecutar(sql)
 
-            MessageBox.Show("Se ha ingresado correctamente", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show("Se ha ingresado correctamente", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Information)
             ListBox1.Items.Clear()
             RellenarList()
 
@@ -276,7 +276,7 @@ Public Class Usuarios
 
         If TextBox1.Text = "" Then
 
-            MessageBox.Show("Por Favor Selecciona Primero un Usuario", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Por Favor Selecciona Primero un Usuario", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
         Else
 
@@ -291,7 +291,7 @@ Public Class Usuarios
             ComboBox2.Enabled = True
 
 
-            resp = MsgBox("Seguro que desea eliminar el usuario", vbOKCancel, "Integrated Pharmacy System")
+            resp = MsgBox("Seguro que desea eliminar el usuario", vbOKCancel, "Integrated Sales System")
 
             If resp = 1 Then
 
@@ -299,7 +299,7 @@ Public Class Usuarios
                 sql = "Delete usuarios where usuario='" + TextBox3.Text + "'"
                 Ejecutar(sql)
 
-                MessageBox.Show("Usuario eliminado con éxito", "Integrated Pharmacy System", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("Usuario eliminado con éxito", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                 ListBox1.Items.Clear()
                 RellenarList()
