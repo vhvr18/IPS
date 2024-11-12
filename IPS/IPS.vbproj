@@ -55,7 +55,7 @@
     <OptionExplicit>On</OptionExplicit>
   </PropertyGroup>
   <PropertyGroup>
-    <OptionCompare>Binary</OptionCompare>
+    <OptionCompare>Text</OptionCompare>
   </PropertyGroup>
   <PropertyGroup>
     <OptionStrict>Off</OptionStrict>
@@ -77,7 +77,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
@@ -200,6 +200,7 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -239,6 +240,12 @@
       <DependentUpon>Reportes.vb</DependentUpon>
     </Compile>
     <Compile Include="Reportes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\ReporteEmpleados.Designer.vb">
+      <DependentUpon>ReporteEmpleados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\ReporteEmpleados.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Salidas Articulos.Designer.vb">
@@ -335,6 +342,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Punto de Venta.resx">
       <DependentUpon>Punto de Venta.vb</DependentUpon>
@@ -344,6 +352,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes.resx">
       <DependentUpon>Reportes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteEmpleados.resx">
+      <DependentUpon>ReporteEmpleados.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Salidas Articulos.resx">
       <DependentUpon>Salidas Articulos.vb</DependentUpon>
@@ -394,6 +405,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo.ico" />
+    <None Include="Resources\rempleados.png" />
+    <None Include="Resources\rventas.png" />
     <None Include="Resources\dulceria.png" />
     <None Include="Resources\vers.png" />
     <None Include="Resources\fondo2.png" />

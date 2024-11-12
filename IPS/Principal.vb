@@ -415,7 +415,7 @@ Public Class Principal
     '' Timer para usar reloj
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
 
-        Label2.Text = TimeOfDay
+        Label2.Text = Today.Date + " " + TimeOfDay
 
     End Sub
 
@@ -491,14 +491,10 @@ Public Class Principal
 
     End Sub
 
-
-
     Private Sub EntradasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EntradasToolStripMenuItem.Click
-
 
         Historial_de_Productos.MdiParent = Me
         Historial_de_Productos.Show()
-
 
     End Sub
 
@@ -506,18 +502,14 @@ Public Class Principal
         Pedidos.Show()
 
     End Sub
-
     Private Sub SalidasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalidasToolStripMenuItem.Click
 
         Historial_de_Salida_de_Poductos.MdiParent = Me
         Historial_de_Salida_de_Poductos.Show()
 
-
     End Sub
 
-
     Private Sub ToolStripButton3_Click_1(sender As Object, e As EventArgs) Handles ToolStripButton3.Click
-
 
         PuntoDeVenta.MdiParent = Me
         PuntoDeVenta.Show()
@@ -529,14 +521,12 @@ Public Class Principal
         CheckInOut.MdiParent = Me
         CheckInOut.Show()
 
-
     End Sub
 
     Private Sub VentasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VentasToolStripMenuItem.Click
 
         Reportes.MdiParent = Me
         Reportes.Show()
-
 
     End Sub
 
@@ -549,10 +539,8 @@ Public Class Principal
 
     Private Sub EntradaDeArtículosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EntradaDeArtículosToolStripMenuItem.Click
 
-
         Entrada_Articulos.MdiParent = Me
         Entrada_Articulos.Show()
-
 
     End Sub
 
@@ -578,14 +566,12 @@ Public Class Principal
         Inventarios.MdiParent = Me
         Inventarios.Show()
 
-
     End Sub
 
     Private Sub ValorTotalToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ValorTotalToolStripMenuItem.Click
 
         ValorTotal.MdiParent = Me
         ValorTotal.Show()
-
 
     End Sub
 
@@ -597,6 +583,13 @@ Public Class Principal
 
         Actualizar_Costos_y_Precios.MdiParent = Me
         Actualizar_Costos_y_Precios.Show()
+
+    End Sub
+
+    Private Sub EntradaEmpleadosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EntradaEmpleadosToolStripMenuItem.Click
+
+        ReporteEmpleados.MdiParent = Me
+        ReporteEmpleados.Show()
 
     End Sub
 End Class

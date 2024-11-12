@@ -29,6 +29,7 @@ Partial Class Principal
         Me.ToolStripButton4 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSplitButton2 = New System.Windows.Forms.ToolStripSplitButton()
         Me.VentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EntradaEmpleadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSplitButton3 = New System.Windows.Forms.ToolStripSplitButton()
         Me.PedidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.InventarioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -89,7 +90,7 @@ Partial Class Principal
         '
         'ToolStripSplitButton2
         '
-        Me.ToolStripSplitButton2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VentasToolStripMenuItem})
+        Me.ToolStripSplitButton2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VentasToolStripMenuItem, Me.EntradaEmpleadosToolStripMenuItem})
         Me.ToolStripSplitButton2.Font = New System.Drawing.Font("Segoe UI", 15.0!)
         Me.ToolStripSplitButton2.Image = Global.IPS.My.Resources.Resources.report
         Me.ToolStripSplitButton2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
@@ -101,11 +102,19 @@ Partial Class Principal
         'VentasToolStripMenuItem
         '
         Me.VentasToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 13.0!)
-        Me.VentasToolStripMenuItem.Image = Global.IPS.My.Resources.Resources.ventas
+        Me.VentasToolStripMenuItem.Image = Global.IPS.My.Resources.Resources.rventas
         Me.VentasToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.VentasToolStripMenuItem.Name = "VentasToolStripMenuItem"
-        Me.VentasToolStripMenuItem.Size = New System.Drawing.Size(153, 36)
+        Me.VentasToolStripMenuItem.Size = New System.Drawing.Size(284, 54)
         Me.VentasToolStripMenuItem.Text = "Ventas"
+        '
+        'EntradaEmpleadosToolStripMenuItem
+        '
+        Me.EntradaEmpleadosToolStripMenuItem.Image = Global.IPS.My.Resources.Resources.rempleados
+        Me.EntradaEmpleadosToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.EntradaEmpleadosToolStripMenuItem.Name = "EntradaEmpleadosToolStripMenuItem"
+        Me.EntradaEmpleadosToolStripMenuItem.Size = New System.Drawing.Size(284, 54)
+        Me.EntradaEmpleadosToolStripMenuItem.Text = "Entrada Empleados"
         '
         'ToolStripSplitButton3
         '
@@ -278,10 +287,10 @@ Partial Class Principal
         Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(1095, 714)
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(983, 712)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(51, 17)
+        Me.Label2.Size = New System.Drawing.Size(57, 20)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Label2"
         '
@@ -369,4 +378,5 @@ Partial Class Principal
     Friend WithEvents ToolStrip2 As ToolStrip
     Friend WithEvents ToolStripLabel1 As ToolStripLabel
     Friend WithEvents ModificarCostoYPrecioToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents EntradaEmpleadosToolStripMenuItem As ToolStripMenuItem
 End Class
