@@ -107,7 +107,7 @@ Public Class ReporteEmpleados
 
                     dx = New DataTable
                     sql = "EXEC spGetReportEmpleados " & tipoReporte & ",'" + horarioEntrada + "','" + Label6.Text + "','" + CStr(hora2) + ":" + CStr(minutos2) + ":" + CStr(segundos) +
-                        "','" + fecha + "','" + Fecha2 + "','" + ComboBox1.Text + "'"
+                        "','" + fecha + "','" + Fecha2 + " 23:59:00','" + ComboBox1.Text + "'"
                     Conectar()
                     da = New SqlDataAdapter(sql, con)
                     da.Fill(dx)
@@ -121,7 +121,7 @@ Public Class ReporteEmpleados
 
                     dx = New DataTable
                     sql = "EXEC spGetReportEmpleados " & tipoReporte & ",'" + horarioEntrada + "','" + Label6.Text + "','" + CStr(hora2) + ":" + CStr(minutos2) + ":" + CStr(segundos) +
-                        "','" + fecha + "','" + Fecha2 + "','" + ComboBox1.Text + "'"
+                        "','" + fecha + "','" + Fecha2 + " 23:59:00','" + ComboBox1.Text + "'"
                     Conectar()
                     da = New SqlDataAdapter(sql, con)
                     da.Fill(dx)
