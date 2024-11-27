@@ -64,7 +64,7 @@ Partial Class Salidas_Articulos
         '
         Me.TextBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox7.Location = New System.Drawing.Point(349, 251)
-        Me.TextBox7.MaxLength = 5
+        Me.TextBox7.MaxLength = 10
         Me.TextBox7.Name = "TextBox7"
         Me.TextBox7.Size = New System.Drawing.Size(100, 23)
         Me.TextBox7.TabIndex = 8

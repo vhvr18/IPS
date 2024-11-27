@@ -373,15 +373,15 @@ Partial Class Articulo
         Me.ComboBox5.FormattingEnabled = True
         Me.ComboBox5.Location = New System.Drawing.Point(203, 62)
         Me.ComboBox5.Name = "ComboBox5"
-        Me.ComboBox5.Size = New System.Drawing.Size(166, 22)
+        Me.ComboBox5.Size = New System.Drawing.Size(192, 22)
         Me.ComboBox5.TabIndex = 9
         '
         'TextBox4
         '
         Me.TextBox4.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox4.Location = New System.Drawing.Point(202, 102)
+        Me.TextBox4.Location = New System.Drawing.Point(228, 94)
         Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(166, 26)
+        Me.TextBox4.Size = New System.Drawing.Size(167, 26)
         Me.TextBox4.TabIndex = 10
         '
         'ComboBox6
@@ -552,7 +552,7 @@ Partial Class Articulo
         'DateTimePicker1
         '
         Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(277, 140)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(303, 140)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(92, 20)
         Me.DateTimePicker1.TabIndex = 11
