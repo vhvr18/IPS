@@ -14,6 +14,9 @@ Public Class PuntoDeVenta
     Public totalVenta As Double              ''Variable para pasar el monto total 
 
 
+    Public pesajeProducto As String = ""          ''Variable para obtener el precio por kilo 
+
+
     Public Sub LlenarGrid()             '' Llena el grid de la preventa 
 
         dx = New DataTable
@@ -82,7 +85,7 @@ Public Class PuntoDeVenta
         Dim precio As Double     ''Variable para llevar el control del total en la tabla preventas
 
         Dim tipoProducto As String = ""             ''Variable con la que verificare el tipo de articulo (Granel,fisico, virtual)
-        Dim pesajeProducto As String = ""          ''Variable para obtener el precio por kilo 
+
 
 
         Format(precio, "00.00")
@@ -138,21 +141,28 @@ Public Class PuntoDeVenta
             MessageBox.Show("Este producto no esta dado de alta", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.None)
 
         Else
-
+            ''Productos a granel 
             If tipoProducto = "GRANEL" Then
 
-                If descripcion = "" Then
+                If descripcion = "" Then            ''Se usa la variable descripcion para validar si el producto ya esta en preventa
 
                     If existencia > 0 Then                  ''Se ingresa por primera vez en el grid
 
+                        ''Codigo para ingreso de kg pero en gramaje ejemplo 100 gramos
                         pesajeProducto = InputBox("Agrega el peso del producto", "Integrated Sales System")
+
+                        ''Codigo para agregar pantalla de ingreso de kg pero en moneda ejemplo 10 pesos
+
+                        'CantidadProductoGranel.cargaCodigo(producto)
+                        'CantidadProductoGranel.Show()
+
 
                         '''''''''' Si cancela no pasa nada
 
                         If pesajeProducto = "" Then                                   ''Si cancela la operacion no pasara nada 
 
                         Else                                                           ''De lo contrario buscara el producto y vera si hay existencias 
-                            CantidadProductoGranel.Show()
+
 
                             If Val(pesajeProducto) > existencia Then
 
@@ -187,7 +197,7 @@ Public Class PuntoDeVenta
 
             Else                        ''Productos por piezas
 
-                If descripcion = "" Then
+                If descripcion = "" Then          ''Se usa la variable descripcion para validar si el producto ya esta en preventa
 
                     If existencia > 0 Then                  ''Se ingresa por primera vez en el grid
 

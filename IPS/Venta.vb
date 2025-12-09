@@ -1,8 +1,4 @@
 ﻿Imports System.Data.SqlClient
-Imports System.Net
-Imports System.Net.Mail
-
-Imports System.Drawing.Printing
 
 Public Class Venta
 
@@ -473,6 +469,8 @@ Public Class Venta
 
     End Sub
 
+
+
     Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
 
         ''Estructura del ticket y configuracion
@@ -499,7 +497,7 @@ Public Class Venta
 
         ''Cuerpo del ticket
 
-        e.Graphics.DrawString("FARMACIA SAN VICENTE", ReportFont, Brushes.Chocolate, 35, 0)
+        e.Graphics.DrawString(Principal.sucursal, ReportFont, Brushes.Chocolate, 35, 0)
 
         e.Graphics.DrawString("Numero de Ticket: " + id, ReportFont2, Brushes.Chocolate, 0, 30)
 
@@ -520,7 +518,7 @@ Public Class Venta
 
         For a = 0 To PuntoDeVenta.DataGridView1.Rows.Count - 1               ''Ciclo para agregar los productos al ticket
 
-            strPrint = strPrint & (PuntoDeVenta.DataGridView1.Item(1, a).Value) & vbCrLf & "#" & (PuntoDeVenta.DataGridView1.Item(3, a).Value) & "                        $" & (PuntoDeVenta.DataGridView1.Item(4, a).Value) & "                    $" & (PuntoDeVenta.DataGridView1.Item(5, a).Value) & vbCrLf
+            strPrint = strPrint & (PuntoDeVenta.DataGridView1.Item(1, a).Value) & vbCrLf & "#" & (PuntoDeVenta.DataGridView1.Item(3, a).Value) & "                        $" & (Convert.ToDecimal(PuntoDeVenta.DataGridView1.Item(4, a).Value)).ToString("0.00") & "                    $" & (Convert.ToDecimal(PuntoDeVenta.DataGridView1.Item(5, a).Value)).ToString("0.00") & vbCrLf
             e.Graphics.DrawString(strPrint, ReportFont2, Brushes.Chocolate, 0, posY)
 
         Next
@@ -540,7 +538,19 @@ Public Class Venta
 
         pos2 = pos2 + 20
 
-        e.Graphics.DrawString("Efectivo: $" & TextBox5.Text, ReportFont2, Brushes.Chocolate, 160, pos2)
+        Dim tipoPago As String = ""
+        Dim monto As Double = 0
+        If ComboBox2.Text = "Efectivo" Then
+            tipoPago = "Efectivo"
+            monto = Convert.ToDecimal(TextBox5.Text)
+
+        Else
+            tipoPago = "Tarjeta"
+            monto = Convert.ToDecimal(TextBox6.Text)
+
+        End If
+
+        e.Graphics.DrawString(tipoPago + ": $" & monto.ToString("0.00"), ReportFont2, Brushes.Chocolate, 160, pos2)
 
         pos2 = pos2 + 20
 
@@ -552,11 +562,28 @@ Public Class Venta
 
         pos2 = pos2 + 30
 
-        e.Graphics.DrawString("Las Américas, 55070 Ecatepec de Morelos, Méx.", ReportFont2, Brushes.Chocolate, 5, pos2)
+        e.Graphics.DrawString("San Antonio, 54900 Tultitlan, Méx.", ReportFont2, Brushes.Chocolate, 5, pos2)
 
 
     End Sub
 
+    Private Sub TextBox6_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBox6.KeyDown
+        Dim resp As Integer
 
 
+        If e.KeyCode = Keys.Enter Then
+
+            resp = MsgBox("¿Ya realizaste el cobro al cliente? ", vbOKCancel, "Integrated Sales System")  ''Codigo que confirma la eliminacion de un usuario
+
+            If resp = 1 Then
+
+                RegistrarVentas()
+
+            Else
+
+            End If
+
+
+        End If
+    End Sub
 End Class

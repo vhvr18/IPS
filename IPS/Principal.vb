@@ -24,6 +24,10 @@ Public Class Principal
     ''Variable con la cual voy a controlar que ventana de valores voy a abrir 
     Public Opcion As Integer = 0
 
+
+    Public sucursal As String = ""
+    Public idSucursal As String = ""
+
     ''Bloque de codigo para darle color al fondo del menu
 
     Public Sub BackGround()
@@ -341,11 +345,6 @@ Public Class Principal
 
         End If
 
-
-
-        Dim sucursal As String = ""
-        Dim idSucursal As String = ""
-
         ''Codigo para habilitar y deshabilitar botonos segun el nivel de usuario
 
         If Login.nivel = "CAJERO" Then
@@ -381,15 +380,15 @@ Public Class Principal
 
         While dr.Read
 
-            idSucursal = dr(1)
-            sucursal = dr(0)
+            idSucursal = dr(0)
+            sucursal = dr(1)
 
         End While
         con.Close()
 
 
 
-        ToolStripLabel1.Text = "SUCURSAL: " + idSucursal + "  ID: " + sucursal + "  USUARIO: " + Login.nombreCompleto + " - " + Login.nivel ''Imprimo en variable el usuario que ingreso
+        ToolStripLabel1.Text = "SUCURSAL: " + sucursal + "  ID: " + idSucursal + "  USUARIO: " + Login.nombreCompleto + " - " + Login.nivel ''Imprimo en variable el usuario que ingreso
 
 
 

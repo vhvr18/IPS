@@ -267,6 +267,8 @@ Public Class Salidas_Articulos
         TextBox6.Text = ""
         TextBox7.Text = ""
 
+        TextBox1.Select()
+
     End Sub
 
     ''Salida de Articulos

@@ -1,6 +1,7 @@
 ﻿Imports System.Net
 Imports System.Net.Mail
 Imports System.Data.SqlClient
+Imports System.Configuration
 
 Module Modulos
 
@@ -20,10 +21,30 @@ Module Modulos
 
     Public corres As String
 
+    Dim servidor As String = ConfigurationManager.AppSettings("servidor")
+    Dim direcIP As String = ConfigurationManager.AppSettings("ip")
+
+
+    'Public Sub Conectar()
+
+    '    '    ''If servidor = "Local" Then
+    '    '    'con = New SqlConnection
+    '    '    'con.ConnectionString = ("server =localhost;database =Dulceria; integrated security = true")
+    '    '    'con.Open()
+
+    '    '    'ElseIf servidor = "Remota" Then
+    '    con = New SqlConnection
+    '    con.ConnectionString = ("Data Source=172.16.155.54,1433;Network Library=DBMSSOCN;Initial Catalog=Dulceria;User ID=sa;Password=2022;")
+    '    con.Open()
+    ''    'End If
+
+
+    'End Sub
+
     'Conexion central
     Public Sub Conectar()
         con = New SqlConnection
-        con.ConnectionString = (" server =localhost;database =RECOVERY SA; integrated security = true")
+        con.ConnectionString = ("server =DESKTOP-NIEF6TG\MSSQLSERVER01;database =Restaurante; integrated security = true")
         con.Open()
     End Sub
 
@@ -31,7 +52,7 @@ Module Modulos
     ''Conexion remota, solo cambiar parametros
     'Public Sub Conectar()
     '    con = New SqlConnection
-    '    con.ConnectionString = ("Data Source=25.29.75.145,1433;Network Library=DBMSSOCN;Initial Catalog=RECOVERY;User ID=sa;Password=01900;")
+    '    con.ConnectionString = ("Data Source=172.16.155.54,1433;Network Library=DBMSSOCN;Initial Catalog=RECOVERY;User ID=sa;Password=01900;")
     '    con.Open()
     'End Sub
 
