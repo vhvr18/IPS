@@ -46,6 +46,7 @@ Partial Class Principal
         Me.SalidasDeArtículosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UbicacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ModificarCostoYPrecioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ResetInventarioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
@@ -211,7 +212,7 @@ Partial Class Principal
         '
         'ArticulosToolStripMenuItem
         '
-        Me.ArticulosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AltaDeArtículoToolStripMenuItem, Me.EntradaDeArtículosToolStripMenuItem, Me.SalidasDeArtículosToolStripMenuItem, Me.UbicacionesToolStripMenuItem, Me.ModificarCostoYPrecioToolStripMenuItem})
+        Me.ArticulosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AltaDeArtículoToolStripMenuItem, Me.EntradaDeArtículosToolStripMenuItem, Me.SalidasDeArtículosToolStripMenuItem, Me.UbicacionesToolStripMenuItem, Me.ModificarCostoYPrecioToolStripMenuItem, Me.ResetInventarioToolStripMenuItem})
         Me.ArticulosToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ArticulosToolStripMenuItem.Image = Global.IPS.My.Resources.Resources.barcode
         Me.ArticulosToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
@@ -258,6 +259,14 @@ Partial Class Principal
         Me.ModificarCostoYPrecioToolStripMenuItem.Name = "ModificarCostoYPrecioToolStripMenuItem"
         Me.ModificarCostoYPrecioToolStripMenuItem.Size = New System.Drawing.Size(295, 36)
         Me.ModificarCostoYPrecioToolStripMenuItem.Text = "Modificar Costo y Precio"
+        '
+        'ResetInventarioToolStripMenuItem
+        '
+        Me.ResetInventarioToolStripMenuItem.Image = Global.IPS.My.Resources.Resources.reset2
+        Me.ResetInventarioToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.ResetInventarioToolStripMenuItem.Name = "ResetInventarioToolStripMenuItem"
+        Me.ResetInventarioToolStripMenuItem.Size = New System.Drawing.Size(295, 36)
+        Me.ResetInventarioToolStripMenuItem.Text = "Reset Inventario"
         '
         'ToolStripMenuItem1
         '
@@ -379,4 +388,5 @@ Partial Class Principal
     Friend WithEvents ToolStripLabel1 As ToolStripLabel
     Friend WithEvents ModificarCostoYPrecioToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EntradaEmpleadosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ResetInventarioToolStripMenuItem As ToolStripMenuItem
 End Class

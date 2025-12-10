@@ -164,6 +164,12 @@
     <Compile Include="Entrada Articulos.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmConfirmarPassword.Designer.vb">
+      <DependentUpon>FrmConfirmarPassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmConfirmarPassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Historial de Productos.Designer.vb">
       <DependentUpon>Historial de Productos.vb</DependentUpon>
     </Compile>
@@ -316,6 +322,9 @@
     <EmbeddedResource Include="Entrada Articulos.resx">
       <DependentUpon>Entrada Articulos.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmConfirmarPassword.resx">
+      <DependentUpon>FrmConfirmarPassword.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Historial de Productos.resx">
       <DependentUpon>Historial de Productos.vb</DependentUpon>
     </EmbeddedResource>
@@ -407,6 +416,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo.ico" />
+    <None Include="Resources\reset2.png" />
+    <None Include="Resources\reset.png" />
     <None Include="Resources\rempleados.png" />
     <None Include="Resources\rventas.png" />
     <None Include="Resources\dulceria.png" />

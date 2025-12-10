@@ -1,6 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Net
 Imports System.Net.Mail
+Imports System.Security.Cryptography
 
 
 Public Class Principal
@@ -360,6 +361,8 @@ Public Class Principal
             ValorTotalToolStripMenuItem.Enabled = False
             PedidosToolStripMenuItem.Enabled = False
             ModificarCostoYPrecioToolStripMenuItem.Enabled = False
+            EntradaEmpleadosToolStripMenuItem.Enabled = False
+            ResetInventarioToolStripMenuItem.Visible = False
 
         ElseIf Login.nivel = "ADMINISTRADOR" Then
 
@@ -589,6 +592,50 @@ Public Class Principal
 
         ReporteEmpleados.MdiParent = Me
         ReporteEmpleados.Show()
+
+    End Sub
+
+    Public Sub ResetInInventario()
+        Dim respuesta = MessageBox.Show(
+            "⚠️ Esta acción pondrá todas las existencias en 0." & vbCrLf &
+            "Este proceso NO es reversible." & vbCrLf &
+            vbCrLf &
+            "¿Deseas continuar?",
+            "Reset de Inventario",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Warning
+        )
+
+        If respuesta = DialogResult.Yes Then
+            ' Ejecutar el reset de inventario
+            ' Abrir el formulario de confirmación
+            Dim frm As New FrmConfirmarPassword
+            frm.ShowDialog()
+
+            ' Evaluar si se autorizó
+            If frm.Autorizado = False Then
+                MessageBox.Show("Operación cancelada.", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Exit Sub
+            Else
+                ' ---------------------------
+                ' Ejecutar reset de inventario
+                ' ---------------------------
+                sql = "update inventario set Existencia = 0 "
+                Ejecutar(sql)
+
+                MessageBox.Show("Inventario reiniciado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
+
+
+
+        Else
+            ' Cancelado por el usuario
+        End If
+    End Sub
+
+    Private Sub ResetInventarioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ResetInventarioToolStripMenuItem.Click
+
+        ResetInInventario()
 
     End Sub
 End Class

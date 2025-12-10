@@ -630,16 +630,7 @@ Public Class Articulo
         DateTimePicker1.Value = Today
         LlenarCombox()
 
-        sql = "Select * from Sucursales"
-        Ejecutar(sql)
-        com = New SqlCommand(sql, con)
-        dr = com.ExecuteReader
-
-        If dr.Read Then
-
-            TextBox12.Text = (dr(1))
-
-        End If
+        TextBox12.Text = Principal.sucursal
 
         TextBox2.CharacterCasing = CharacterCasing.Upper            ''Poner los textbox en mayusculas o minisculas
         TextBox13.CharacterCasing = CharacterCasing.Upper

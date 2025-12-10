@@ -343,7 +343,7 @@ Public Class Reportes
 
         Label15.Text = "Ventas en Efectivo " & (Format(totalEfectivo, "$#,##0.00"))
         Label17.Text = "= Total de Efectivo " & (Format(totalEfectivo, "$#,##0.00"))
-        Label18.Text = "= Ingresos Netos $ " & (Format(totalNeto, "$#,##0.00"))
+        Label18.Text = "= Ingresos Netos " & (Format(totalNeto, "$#,##0.00"))
         Label19.Text = "Ventas con Tarjeta Bancaria " & (Format(totalCredito, "$#,##0.00"))
         Label20.Text = "Ventas en Efectivo " & (Format(totalEfectivo, "$#,##0.00"))
 
