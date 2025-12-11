@@ -33,23 +33,30 @@ Public Class ValorTotal
         Dim totalArticulosDB As Integer
 
 
-        sql = "SELECT COUNT(*) as NumeroArticulos, 
-                SUM(
-                     CASE 
-                        WHEN p.Tipo_Articulo <> 'GRANEL' THEN i.Existencia
-                        ELSE 0 
-                     END
-                ) as NumeroPiezas,
-                
+        sql = "SELECT 
+                COUNT(*) AS NumeroArticulos, 
+    
                 SUM(
                     CASE 
-                        WHEN p.Tipo_Articulo = 'GRANEL' THEN i.Existencia
+                        WHEN p.Tipo_Articulo <> 'TRABAJO' 
+                             AND p.Tipo_Articulo <> 'GRANEL' 
+                            THEN i.Existencia
                         ELSE 0 
                     END
-                ) as TotalGranelGramos
+                ) AS NumeroPiezas,
+    
+                SUM(
+                    CASE 
+                        WHEN p.Tipo_Articulo <> 'TRABAJO' 
+                             AND p.Tipo_Articulo = 'GRANEL' 
+                            THEN i.Existencia
+                        ELSE 0
+                    END
+                ) AS TotalGranelGramos
+
             FROM productos p 
             INNER JOIN inventario i
-                ON p.Codigo_Producto= i.Codigo_Producto"
+                ON p.Codigo_Producto = i.Codigo_Producto"
         Ejecutar(sql)
 
         com = New SqlCommand(sql, con)
@@ -72,7 +79,7 @@ Public Class ValorTotal
                     SUM(
                         COALESCE(
                             CASE 
-                                WHEN p.Tipo_Articulo = 'Granel' 
+                                WHEN p.Tipo_Articulo = 'GRANEL' 
                                     THEN (i.Existencia / 1000.0) * i.Costo 
                                 ELSE 
                                     i.Existencia * i.Costo
@@ -83,7 +90,7 @@ Public Class ValorTotal
                     SUM(
                         COALESCE(
                             CASE 
-                                WHEN p.Tipo_Articulo = 'Granel' 
+                                WHEN p.Tipo_Articulo = 'GRANEL' 
                                     THEN (i.Existencia / 1000.0) * i.Precio 
                                 ELSE 
                                     i.Existencia * i.Precio
@@ -93,11 +100,17 @@ Public Class ValorTotal
                 FROM productos p
                 INNER JOIN inventario i ON p.Codigo_Producto = i.Codigo_Producto
                 WHERE i.Existencia > 0
+                  AND p.Tipo_Articulo <> 'TRABAJO'
             )
             SELECT
-                FORMAT(Costo_Total_Num, 'N2') AS Costo_Total,
-                FORMAT(Precio_Total_Num, 'N2') AS Precio_Total,
-                FORMAT(Precio_Total_Num - Costo_Total_Num, 'N2') AS Utilidad_Total
+                Costo_Total =
+                    CONVERT(VARCHAR(50), CONVERT(MONEY, Costo_Total_Num), 1),
+    
+                Precio_Total =
+                    CONVERT(VARCHAR(50), CONVERT(MONEY, Precio_Total_Num), 1),
+
+                Utilidad_Total =
+                    CONVERT(VARCHAR(50), CONVERT(MONEY, Precio_Total_Num - Costo_Total_Num), 1)
             FROM Totales"
         Ejecutar(sql)
 

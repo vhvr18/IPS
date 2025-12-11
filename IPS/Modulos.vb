@@ -23,6 +23,7 @@ Module Modulos
 
     Dim servidor As String = ConfigurationManager.AppSettings("servidor")
     Dim direcIP As String = ConfigurationManager.AppSettings("ip")
+    Dim dataBase As String = ConfigurationManager.AppSettings("dataBase")
 
 
     'Public Sub Conectar()
@@ -44,7 +45,7 @@ Module Modulos
     'Conexion central
     Public Sub Conectar()
         con = New SqlConnection
-        con.ConnectionString = ("server =DESKTOP-NIEF6TG\MSSQLSERVER01;database =Restaurante; integrated security = true")
+        con.ConnectionString = (dataBase)
         con.Open()
     End Sub
 

@@ -597,11 +597,10 @@ Public Class Principal
 
     Public Sub ResetInInventario()
         Dim respuesta = MessageBox.Show(
-            "⚠️ Esta acción pondrá todas las existencias en 0." & vbCrLf &
+            "Esta acción pondrá todas las existencias en 0." & vbCrLf &
             "Este proceso NO es reversible." & vbCrLf &
             vbCrLf &
-            "¿Deseas continuar?",
-            "Reset de Inventario",
+            "¿Deseas continuar?", "Integrated Sales System",
             MessageBoxButtons.YesNo,
             MessageBoxIcon.Warning
         )
@@ -623,7 +622,7 @@ Public Class Principal
                 sql = "update inventario set Existencia = 0 "
                 Ejecutar(sql)
 
-                MessageBox.Show("Inventario reiniciado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("Inventario reiniciado correctamente.", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
 
 

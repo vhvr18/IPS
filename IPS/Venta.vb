@@ -116,13 +116,29 @@ Public Class Venta
 
                     End If
 
-                    'actualizar la tabla de inventarios el campo de cantidad
-                    sql = "update dbo.inventario set Existencia = Existencia - " & cantidad & " where Codigo_Producto = '" + codArticulo + "'"
+                    sql = "Select Tipo_Articulo from productos where Codigo_Producto = '" & codArticulo & "'"  ' consulta el tipo de articulo para validar si es trabajo y asi no descontar de inventario
                     Ejecutar(sql)
-                    con.Close()
 
+                    com = New SqlCommand(sql, con)                          ''Leemos la tabla prodcutos para obtener el tipo de articulo
+                    dr = com.ExecuteReader
+                    Dim tipoArticulo As String = ""
+
+                    While dr.Read
+
+                        tipoArticulo = dr(0)
+
+                    End While
+
+                    If tipoArticulo = "TRABAJO" Then
+                        ''No se descuenta del inventario 
+                    Else
+                        'actualizar la tabla de inventarios el campo de cantidad
+                        sql = "update dbo.inventario set Existencia = Existencia - " & cantidad & " where Codigo_Producto = '" + codArticulo + "'"
+                        Ejecutar(sql)
+                        con.Close()
+
+                    End If
                 Else
-
                     compraNegada = "No"
 
                 End If

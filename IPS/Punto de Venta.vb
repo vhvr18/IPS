@@ -218,7 +218,7 @@ Public Class PuntoDeVenta
                     End If
                 Else
 
-                    If cant >= existencia Then
+                    If cant >= existencia And tipoProducto = "FÍSICO" Then
 
                         MessageBox.Show("No hay producto suficiente ", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.None)
 
