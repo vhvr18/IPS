@@ -388,7 +388,7 @@ Public Class PuntoDeVenta
 
                     Else
 
-                        If Val(cantidad) > existencia Then              ''Revisa si la cantidad solicitada no es mayor a la existencia del producto
+                        If Val(cantidad) > existencia And tipoArticulo = "FÍSICO" Then              ''Revisa si la cantidad solicitada no es mayor a la existencia del producto
 
                             MessageBox.Show("El Producto no tiene suficientes existencias ", "Integrated Sales System", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
